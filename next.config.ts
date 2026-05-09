@@ -15,12 +15,8 @@ const nextConfig: NextConfig = {
         destination: `${PROPOSAL_URL}/admin/:path*`,
         permanent: false,
       },
-      // /proposal/crm is served locally — file-system route takes priority over this redirect
-      {
-        source: "/proposal/:path((?!crm).*)",
-        destination: `${PROPOSAL_URL}/proposal/:path*`,
-        permanent: false,
-      },
+      // /proposal/crm is served locally — no redirect for that path
+      // Other /proposal/* paths redirect externally (none currently needed)
       {
         source: "/agreement/:path*",
         destination: `${PROPOSAL_URL}/agreement/:path*`,
