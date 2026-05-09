@@ -8,21 +8,22 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "2FLY Digital Marketing | AI-Powered Marketing Agency",
+  title: "2FLY Digital | Built Different. Powered by AI.",
   description:
-    "Your brand, elevated. 2FLY is an AI-powered digital marketing agency delivering measurable results through data-driven strategy, creative content, and cutting-edge technology.",
+    "A two-person team — one human, one AI — building tools and running campaigns that outperform entire agencies. 2FLY Flow, BossCLAWD, and full-service digital marketing.",
   keywords: [
+    "AI marketing agency",
     "digital marketing",
-    "AI marketing",
-    "social media management",
-    "Meta ads",
-    "Google Business Profile",
+    "2FLY Flow",
+    "BossCLAWD",
+    "AI business intelligence",
     "content production",
     "brand strategy",
   ],
   openGraph: {
-    title: "2FLY Digital Marketing | AI-Powered Marketing Agency",
-    description: "Your brand, elevated. AI-powered marketing that delivers real results.",
+    title: "2FLY Digital | Built Different. Powered by AI.",
+    description:
+      "Your agency runs on vibes. Ours runs on AI. Products, campaigns, and results from a new kind of agency.",
     type: "website",
   },
 };
