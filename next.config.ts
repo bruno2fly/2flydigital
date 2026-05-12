@@ -5,16 +5,7 @@ const PROPOSAL_URL = "https://cursor-proposal-project-uxts49rzf.vercel.app";
 const nextConfig: NextConfig = {
   async redirects() {
     return [
-      {
-        source: "/admin",
-        destination: `${PROPOSAL_URL}/admin`,
-        permanent: false,
-      },
-      {
-        source: "/admin/:path*",
-        destination: `${PROPOSAL_URL}/admin/:path*`,
-        permanent: false,
-      },
+      // /admin and /reports are served locally — no redirects for those paths
       // /proposal/crm is served locally — no redirect for that path
       // Other /proposal/* paths redirect externally (none currently needed)
       {
