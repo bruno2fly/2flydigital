@@ -1,13 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 
 export default function AdminPage() {
   const [password, setPassword] = useState('');
   const [authenticated, setAuthenticated] = useState(false);
   const [error, setError] = useState('');
-  const router = useRouter();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -318,7 +316,7 @@ const styles = {
   submitButton: {
     width: '100%',
     padding: '14px',
-    background: '#10b981',
+    background: 'var(--accent)',
     color: 'white',
     border: 'none',
     borderRadius: '4px',

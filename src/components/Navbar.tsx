@@ -17,7 +17,7 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <a href="#" className="text-xl font-bold tracking-tight text-[#f0ebe4]">
-          2FLY<span className="text-emerald-500">.</span>
+          2FLY<span className="text-accent">.</span>
         </a>
 
         {/* Desktop links */}
@@ -33,7 +33,7 @@ export default function Navbar() {
           ))}
           <a
             href="#cta"
-            className="rounded-lg bg-emerald-500 px-5 py-2 text-sm font-medium text-[#08080c] transition-colors hover:bg-emerald-400"
+            className="rounded-lg bg-accent px-5 py-2 text-sm font-medium text-[#08080c] transition-colors hover:bg-accent"
           >
             Get Started
           </a>
@@ -79,7 +79,7 @@ export default function Navbar() {
               <a
                 href="#cta"
                 onClick={() => setMobileOpen(false)}
-                className="mt-2 rounded-lg bg-emerald-500 px-5 py-2.5 text-center text-sm font-medium text-[#08080c]"
+                className="mt-2 rounded-lg bg-accent px-5 py-2.5 text-center text-sm font-medium text-[#08080c]"
               >
                 Get Started
               </a>

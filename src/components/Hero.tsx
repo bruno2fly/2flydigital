@@ -16,8 +16,8 @@ export default function Hero() {
       />
 
       {/* Gradient orbs */}
-      <div className="pointer-events-none absolute left-1/4 top-1/4 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-500/10 blur-[120px]" />
-      <div className="pointer-events-none absolute bottom-1/4 right-1/4 h-[400px] w-[400px] translate-x-1/2 translate-y-1/2 rounded-full bg-emerald-600/8 blur-[100px]" />
+      <div className="pointer-events-none absolute left-1/4 top-1/4 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/10 blur-[120px]" />
+      <div className="pointer-events-none absolute bottom-1/4 right-1/4 h-[400px] w-[400px] translate-x-1/2 translate-y-1/2 rounded-full bg-accent/8 blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         {/* Badge */}
@@ -27,7 +27,7 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-[#1a1a22] bg-[#0f0f14] px-4 py-1.5 text-xs text-[#c4b8a8]">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
             AI-Native Digital Agency
           </span>
         </motion.div>
@@ -40,7 +40,7 @@ export default function Hero() {
           className="mt-8 text-4xl font-bold leading-[1.1] tracking-tight text-[#f0ebe4] sm:text-5xl md:text-7xl"
         >
           We ship{" "}
-          <span className="bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-accent to-accent bg-clip-text text-transparent">
             while others
           </span>
           <br />
@@ -67,13 +67,13 @@ export default function Hero() {
         >
           <a
             href="#cta"
-            className="rounded-lg bg-emerald-500 px-7 py-3 text-sm font-semibold text-[#08080c] transition-colors hover:bg-emerald-400"
+            className="rounded-lg bg-accent px-7 py-3 text-sm font-semibold text-[#08080c] transition-colors hover:bg-accent"
           >
             Start a Project
           </a>
           <a
             href="#products"
-            className="rounded-lg border border-[#1a1a22] px-7 py-3 text-sm font-medium text-[#f0ebe4] transition-colors hover:border-emerald-500/40 hover:text-emerald-400"
+            className="rounded-lg border border-[#1a1a22] px-7 py-3 text-sm font-medium text-[#f0ebe4] transition-colors hover:border-accent/40 hover:text-accent"
           >
             See What We Build
           </a>

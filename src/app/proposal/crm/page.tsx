@@ -12,7 +12,7 @@ export default function OutboundOSProposal() {
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            background: "#22c55e", color: "#000", padding: "8px 20px", borderRadius: "8px",
+            background: "var(--accent)", color: "#000", padding: "8px 20px", borderRadius: "8px",
             fontWeight: 600, fontSize: "0.85rem", textDecoration: "none", letterSpacing: "-0.01em"
           }}
         >
@@ -23,7 +23,7 @@ export default function OutboundOSProposal() {
       {/* HERO */}
       <section style={{ maxWidth: "800px", margin: "0 auto", padding: "80px 40px 60px", textAlign: "center" }}>
         <div style={{
-          display: "inline-block", background: "#0d2318", color: "#22c55e",
+          display: "inline-block", background: "var(--accent-soft)", color: "var(--accent)",
           padding: "6px 16px", borderRadius: "100px", fontSize: "0.78rem",
           fontWeight: 600, letterSpacing: "0.05em", marginBottom: "28px",
           border: "1px solid #1a4a2e", textTransform: "uppercase"
@@ -39,7 +39,7 @@ export default function OutboundOSProposal() {
         }}>
           A operação comercial que o Pipelore precisa.
           <br />
-          <span style={{ color: "#22c55e", WebkitTextFillColor: "#22c55e" }}>Sem o preço do HubSpot.</span>
+          <span style={{ color: "var(--accent)", WebkitTextFillColor: "var(--accent)" }}>Sem o preço do HubSpot.</span>
         </h1>
 
         <p style={{ fontSize: "1.1rem", color: "#888", lineHeight: 1.7, maxWidth: "600px", margin: "0 auto 40px" }}>
@@ -52,7 +52,7 @@ export default function OutboundOSProposal() {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              background: "#22c55e", color: "#000", padding: "14px 32px",
+              background: "var(--accent)", color: "#000", padding: "14px 32px",
               borderRadius: "10px", fontWeight: 700, fontSize: "1rem",
               textDecoration: "none", letterSpacing: "-0.01em"
             }}
@@ -162,7 +162,7 @@ export default function OutboundOSProposal() {
           {/* Header */}
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", background: "#0d0d0d", borderBottom: "1px solid #1f1f1f" }}>
             <div style={{ padding: "16px 24px", fontWeight: 600, color: "#666", fontSize: "0.85rem" }}></div>
-            <div style={{ padding: "16px 24px", fontWeight: 700, color: "#22c55e", fontSize: "0.9rem", borderLeft: "1px solid #1f1f1f", borderRight: "1px solid #1f1f1f" }}>OutboundOS</div>
+            <div style={{ padding: "16px 24px", fontWeight: 700, color: "var(--accent)", fontSize: "0.9rem", borderLeft: "1px solid #1f1f1f", borderRight: "1px solid #1f1f1f" }}>OutboundOS</div>
             <div style={{ padding: "16px 24px", fontWeight: 600, color: "#666", fontSize: "0.9rem" }}>HubSpot</div>
           </div>
 
@@ -181,7 +181,7 @@ export default function OutboundOSProposal() {
               borderBottom: i < 7 ? "1px solid #1a1a1a" : "none"
             }}>
               <div style={{ padding: "16px 24px", color: "#999", fontSize: "0.875rem" }}>{label}</div>
-              <div style={{ padding: "16px 24px", color: "#22c55e", fontSize: "0.875rem", fontWeight: 600, borderLeft: "1px solid #1a1a1a", borderRight: "1px solid #1a1a1a", background: "#0d1a0f" }}>{ours}</div>
+              <div style={{ padding: "16px 24px", color: "var(--accent)", fontSize: "0.875rem", fontWeight: 600, borderLeft: "1px solid #1a1a1a", borderRight: "1px solid #1a1a1a", background: "var(--accent-soft)" }}>{ours}</div>
               <div style={{ padding: "16px 24px", color: "#666", fontSize: "0.875rem" }}>{theirs}</div>
             </div>
           ))}
@@ -213,7 +213,7 @@ export default function OutboundOSProposal() {
                 "Até 3 usuários (Laura + Maiara + 1)",
               ].map((item, i) => (
                 <div key={i} style={{ display: "flex", gap: "10px", marginBottom: "10px", color: "#ccc", fontSize: "0.875rem" }}>
-                  <span style={{ color: "#22c55e", fontWeight: 700, flexShrink: 0 }}>✓</span>
+                  <span style={{ color: "var(--accent)", fontWeight: 700, flexShrink: 0 }}>✓</span>
                   <span>{item}</span>
                 </div>
               ))}
@@ -222,17 +222,17 @@ export default function OutboundOSProposal() {
 
           {/* GROWTH */}
           <div style={{
-            background: "#0d1a0f", borderRadius: "16px", padding: "36px",
-            border: "2px solid #22c55e", position: "relative", overflow: "hidden"
+            background: "var(--accent-soft)", borderRadius: "16px", padding: "36px",
+            border: "2px solid var(--accent)", position: "relative", overflow: "hidden"
           }}>
             <div style={{
               position: "absolute", top: "16px", right: "16px",
-              background: "#22c55e", color: "#000", padding: "4px 12px",
+              background: "var(--accent)", color: "#000", padding: "4px 12px",
               borderRadius: "100px", fontSize: "0.72rem", fontWeight: 700
             }}>
               RECOMENDADO
             </div>
-            <div style={{ color: "#22c55e", fontSize: "0.8rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "8px" }}>Growth</div>
+            <div style={{ color: "var(--accent)", fontSize: "0.8rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "8px" }}>Growth</div>
             <div style={{ fontSize: "2.5rem", fontWeight: 800, letterSpacing: "-0.04em", marginBottom: "4px" }}>R$497</div>
             <div style={{ color: "#555", fontSize: "0.85rem", marginBottom: "28px" }}>/mês · faturamento mensal</div>
             <div style={{ borderTop: "1px solid #1a4a2e", paddingTop: "24px" }}>
@@ -246,7 +246,7 @@ export default function OutboundOSProposal() {
                 "Pipeline de CS completo",
               ].map((item, i) => (
                 <div key={i} style={{ display: "flex", gap: "10px", marginBottom: "10px", color: "#ccc", fontSize: "0.875rem" }}>
-                  <span style={{ color: "#22c55e", fontWeight: 700, flexShrink: 0 }}>✓</span>
+                  <span style={{ color: "var(--accent)", fontWeight: 700, flexShrink: 0 }}>✓</span>
                   <span>{item}</span>
                 </div>
               ))}
@@ -259,7 +259,7 @@ export default function OutboundOSProposal() {
             <div style={{ fontWeight: 700, marginBottom: "4px" }}>Setup Único — R$1.200</div>
             <div style={{ color: "#666", fontSize: "0.875rem" }}>Pipeline configurado + importação da base + 3h de treinamento com Laura, Maiara e Débora</div>
           </div>
-          <div style={{ color: "#22c55e", fontWeight: 700, fontSize: "0.875rem", whiteSpace: "nowrap" }}>✓ Incluso no contrato</div>
+          <div style={{ color: "var(--accent)", fontWeight: 700, fontSize: "0.875rem", whiteSpace: "nowrap" }}>✓ Incluso no contrato</div>
         </div>
       </section>
 
@@ -280,7 +280,7 @@ export default function OutboundOSProposal() {
             { week: "Semana 4", title: "Go Live", desc: "Treinamento final, ajustes, tudo rodando. Primeiro relatório." },
           ].map((w, i) => (
             <div key={i} style={{ background: "#111", borderRadius: "12px", padding: "24px", border: "1px solid #1f1f1f", textAlign: "center" }}>
-              <div style={{ color: "#22c55e", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "8px" }}>{w.week}</div>
+              <div style={{ color: "var(--accent)", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "8px" }}>{w.week}</div>
               <div style={{ fontWeight: 700, fontSize: "0.95rem", marginBottom: "8px" }}>{w.title}</div>
               <div style={{ color: "#666", fontSize: "0.8rem", lineHeight: 1.55 }}>{w.desc}</div>
             </div>
@@ -290,7 +290,7 @@ export default function OutboundOSProposal() {
 
       {/* CTA */}
       <section style={{ maxWidth: "700px", margin: "0 auto", padding: "60px 40px 100px", textAlign: "center" }}>
-        <div style={{ background: "linear-gradient(135deg, #0d1a0f 0%, #111 100%)", borderRadius: "20px", padding: "60px 48px", border: "1px solid #22c55e33" }}>
+        <div style={{ background: "linear-gradient(135deg, var(--accent-soft) 0%, #111 100%)", borderRadius: "20px", padding: "60px 48px", border: "1px solid var(--accent)33" }}>
           <h2 style={{ fontSize: "2rem", fontWeight: 800, letterSpacing: "-0.04em", marginBottom: "16px" }}>
             Vamos fechar? 🤝
           </h2>
@@ -304,7 +304,7 @@ export default function OutboundOSProposal() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                background: "#22c55e", color: "#000", padding: "16px 36px",
+                background: "var(--accent)", color: "#000", padding: "16px 36px",
                 borderRadius: "10px", fontWeight: 700, fontSize: "1rem",
                 textDecoration: "none", letterSpacing: "-0.01em"
               }}

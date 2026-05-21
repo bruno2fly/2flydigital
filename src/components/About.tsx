@@ -7,12 +7,12 @@ export default function About() {
     <section id="about" className="relative px-6 py-24 md:py-32">
       {/* Background */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute right-0 top-1/3 h-[500px] w-[500px] rounded-full bg-emerald-500 opacity-[0.02] blur-[150px]" />
+        <div className="absolute right-0 top-1/3 h-[500px] w-[500px] rounded-full bg-accent opacity-[0.02] blur-[150px]" />
       </div>
 
       <div className="relative mx-auto max-w-6xl">
         <AnimatedSection className="mb-16 text-center">
-          <p className="text-sm font-medium uppercase tracking-widest text-emerald-400">
+          <p className="text-sm font-medium uppercase tracking-widest text-accent">
             About
           </p>
           <h2 className="mt-3 text-3xl font-bold text-[#f0ebe4] sm:text-4xl">
@@ -32,7 +32,7 @@ export default function About() {
                 <strong className="text-[#f0ebe4]">2FLY Digital</strong> is a
                 two-person operation: <strong className="text-[#f0ebe4]">Bruno Lima</strong> — founder,
                 strategist, and the human who actually cares about your business — and an{" "}
-                <strong className="text-emerald-400">AI co-founder</strong> that handles
+                <strong className="text-accent">AI co-founder</strong> that handles
                 research, content production, data analysis, and the kind of work that usually
                 requires an entire department.
               </p>
@@ -56,7 +56,7 @@ export default function About() {
               {/* Bruno */}
               <div className="rounded-xl border border-[#1a1a22] bg-[#0f0f14] p-6">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/10 text-sm font-bold text-emerald-400">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-sm font-bold text-accent">
                     BL
                   </div>
                   <div>
@@ -72,16 +72,16 @@ export default function About() {
               </div>
 
               {/* AI */}
-              <div className="rounded-xl border border-emerald-500/20 bg-[#0f0f14] p-6">
+              <div className="rounded-xl border border-accent/20 bg-[#0f0f14] p-6">
                 <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/10">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5 text-emerald-400">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5 text-accent">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
                     </svg>
                   </div>
                   <div>
                     <p className="font-semibold text-[#f0ebe4]">AI Co-Founder</p>
-                    <p className="text-xs text-emerald-400">Always On</p>
+                    <p className="text-xs text-accent">Always On</p>
                   </div>
                 </div>
                 <p className="mt-4 text-sm leading-relaxed text-[#c4b8a8]">

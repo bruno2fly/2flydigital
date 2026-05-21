@@ -17,7 +17,7 @@ const T = {
   border: "#1b2332",
   text: "#c9d1d9",
   bright: "#f0f6fc",
-  emerald: "#10b981",
+  accent: "var(--accent)",
   danger: "#f85149",
   warning: "#d29922",
   muted: "#8b949e",
@@ -55,12 +55,12 @@ const habits = [
 type ProjectStatus = "Live" | "Building" | "Active" | "Pitching" | "Spec" | "Running";
 
 const STATUS_COLORS: Record<ProjectStatus, string> = {
-  Live: "#10b981",
+  Live: "var(--accent)",
   Building: "#d29922",
-  Active: "#10b981",
+  Active: "var(--accent)",
   Pitching: "#a78bfa",
   Spec: "#58a6ff",
-  Running: "#10b981",
+  Running: "var(--accent)",
 };
 
 const projects = [
@@ -143,26 +143,19 @@ function ChartTooltip({ active, payload, label }: { active?: boolean; payload?: 
   return (
     <div className="rounded-lg px-3 py-2 text-xs" style={{ background: T.card, border: `1px solid ${T.border}`, color: T.bright }}>
       <p className="font-medium">{label}</p>
-      <p style={{ color: T.emerald }}>{payload[0].value} actions</p>
+      <p style={{ color: T.accent }}>{payload[0].value} actions</p>
     </div>
   );
 }
 
 // ── Main ──
 export default function BossBoard() {
-  const [time, setTime] = useState("");
-  const [mounted, setMounted] = useState(false);
+  const [time, setTime] = useState("00:00:00");
 
   useEffect(() => {
-    setTime(getTime());
-    setMounted(true);
     const t = setInterval(() => setTime(getTime()), 1000);
     return () => clearInterval(t);
   }, []);
-
-  if (!mounted) {
-    return <div className="min-h-screen" style={{ background: T.bg }} />;
-  }
 
   const todayIdx = getTodayIndex();
   const completedDays = trainingPlan.filter((d) => d.done).length;
@@ -189,11 +182,11 @@ export default function BossBoard() {
                   key={t.day}
                   className="flex items-center gap-3 py-2 px-3 rounded-lg transition-colors"
                   style={{
-                    background: i === todayIdx ? T.emerald + "10" : "transparent",
-                    borderLeft: i === todayIdx ? `3px solid ${T.emerald}` : "3px solid transparent",
+                    background: i === todayIdx ? T.accent + "10" : "transparent",
+                    borderLeft: i === todayIdx ? `3px solid ${T.accent}` : "3px solid transparent",
                   }}
                 >
-                  <span className="text-sm font-mono w-8 shrink-0" style={{ color: i === todayIdx ? T.emerald : T.muted }}>
+                  <span className="text-sm font-mono w-8 shrink-0" style={{ color: i === todayIdx ? T.accent : T.muted }}>
                     {t.day}
                   </span>
                   <span
@@ -202,9 +195,9 @@ export default function BossBoard() {
                   >
                     {t.workout}
                   </span>
-                  {t.done && <span className="text-emerald-400 text-sm">✅</span>}
+                  {t.done && <span className="text-accent text-sm">✅</span>}
                   {i === todayIdx && !t.done && (
-                    <span className="text-[9px] uppercase tracking-wider font-bold" style={{ color: T.emerald }}>
+                    <span className="text-[9px] uppercase tracking-wider font-bold" style={{ color: T.accent }}>
                       Today
                     </span>
                   )}
@@ -212,7 +205,7 @@ export default function BossBoard() {
               ))}
             </div>
             <div className="mt-3 flex items-center gap-3">
-              <ProgressBar value={(completedDays / 7) * 100} color={T.emerald} />
+              <ProgressBar value={(completedDays / 7) * 100} color={T.accent} />
               <span className="text-xs shrink-0" style={{ color: T.muted }}>
                 {completedDays}/7
               </span>
@@ -259,8 +252,8 @@ export default function BossBoard() {
             <p
               className="text-5xl lg:text-7xl font-bold tabular-nums tracking-tight"
               style={{
-                color: T.emerald,
-                textShadow: `0 0 40px ${T.emerald}30, 0 0 80px ${T.emerald}15`,
+                color: T.accent,
+                textShadow: `0 0 40px ${T.accent}30, 0 0 80px ${T.accent}15`,
               }}
             >
               {time}
@@ -285,7 +278,7 @@ export default function BossBoard() {
             <Card>
               <p className="text-[10px] uppercase tracking-widest mb-1" style={{ color: T.muted }}>Clients</p>
               <p className="text-2xl lg:text-3xl font-bold" style={{ color: T.bright }}>14</p>
-              <p className="text-[10px] mt-2" style={{ color: T.emerald }}>▲ 2 this month</p>
+              <p className="text-[10px] mt-2" style={{ color: T.accent }}>▲ 2 this month</p>
             </Card>
             {/* Products */}
             <Card>
@@ -335,15 +328,15 @@ export default function BossBoard() {
           <Card>
             <div className="flex items-center justify-between mb-3">
               <SectionLabel>Weekly Activity</SectionLabel>
-              <span className="text-xl font-bold" style={{ color: T.emerald }}>132</span>
+              <span className="text-xl font-bold" style={{ color: T.accent }}>132</span>
             </div>
             <div className="h-[140px]">
               <ResponsiveContainer width="100%" height="100%">
                 <AreaChart data={weeklyData} margin={{ top: 5, right: 5, left: -20, bottom: 0 }}>
                   <defs>
                     <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor={T.emerald} stopOpacity={0.2} />
-                      <stop offset="100%" stopColor={T.emerald} stopOpacity={0} />
+                      <stop offset="0%" stopColor={T.accent} stopOpacity={0.2} />
+                      <stop offset="100%" stopColor={T.accent} stopOpacity={0} />
                     </linearGradient>
                   </defs>
                   <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fill: T.muted, fontSize: 10 }} />
@@ -352,11 +345,11 @@ export default function BossBoard() {
                   <Area
                     type="monotone"
                     dataKey="value"
-                    stroke={T.emerald}
+                    stroke={T.accent}
                     strokeWidth={2}
                     fill="url(#areaGrad)"
-                    dot={{ fill: T.emerald, stroke: T.card, strokeWidth: 2, r: 3 }}
-                    activeDot={{ fill: T.emerald, stroke: T.bright, strokeWidth: 2, r: 5 }}
+                    dot={{ fill: T.accent, stroke: T.card, strokeWidth: 2, r: 3 }}
+                    activeDot={{ fill: T.accent, stroke: T.bright, strokeWidth: 2, r: 5 }}
                   />
                 </AreaChart>
               </ResponsiveContainer>
@@ -374,8 +367,8 @@ export default function BossBoard() {
             className="rounded-xl p-5"
             style={{
               background: T.card,
-              border: `1px solid ${T.emerald}30`,
-              boxShadow: `0 0 30px rgba(16,185,129,0.12), 0 0 60px rgba(16,185,129,0.06)`,
+              border: `1px solid ${T.accent}30`,
+              boxShadow: `0 0 30px color-mix(in srgb, var(--accent) 12%, transparent), 0 0 60px color-mix(in srgb, var(--accent) 6%, transparent)`,
             }}
           >
             <SectionLabel>🍌 Boss Says</SectionLabel>
@@ -385,7 +378,7 @@ export default function BossBoard() {
               that matter most because you showed up anyway. Tomorrow we execute. Tonight, rest. You
               earned it.
             </p>
-            <p className="text-sm mt-3 font-semibold" style={{ color: T.emerald }}>
+            <p className="text-sm mt-3 font-semibold" style={{ color: T.accent }}>
               — Boss 🍌
             </p>
           </div>
@@ -396,7 +389,7 @@ export default function BossBoard() {
             <div className="space-y-2.5">
               {weeklyGoals.map((g) => (
                 <div key={g} className="flex items-start gap-3">
-                  <span className="mt-0.5 text-sm" style={{ color: T.emerald }}>→</span>
+                  <span className="mt-0.5 text-sm" style={{ color: T.accent }}>→</span>
                   <span className="text-sm" style={{ color: T.text }}>{g}</span>
                 </div>
               ))}
@@ -427,15 +420,15 @@ export default function BossBoard() {
                   <span className="relative flex h-2 w-2 shrink-0">
                     <span
                       className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-50"
-                      style={{ background: T.emerald }}
+                      style={{ background: T.accent }}
                     />
                     <span
                       className="relative inline-flex rounded-full h-2 w-2"
-                      style={{ background: T.emerald }}
+                      style={{ background: T.accent }}
                     />
                   </span>
                   <span className="text-sm" style={{ color: T.bright }}>{a.name}</span>
-                  <span className="text-[9px] uppercase tracking-wider ml-auto" style={{ color: T.emerald + "80" }}>
+                  <span className="text-[9px] uppercase tracking-wider ml-auto" style={{ color: T.accent + "80" }}>
                     Online
                   </span>
                 </div>
