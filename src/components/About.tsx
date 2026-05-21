@@ -15,7 +15,7 @@ export default function About() {
           <p className="text-sm font-medium uppercase tracking-widest text-accent">
             About
           </p>
-          <h2 className="mt-3 text-3xl font-bold text-[#f0ebe4] sm:text-4xl">
+          <h2 className="mt-3 text-3xl font-bold text-text sm:text-4xl">
             A New Kind of Agency
           </h2>
         </AnimatedSection>
@@ -23,14 +23,14 @@ export default function About() {
         <div className="grid gap-12 md:grid-cols-2 md:items-center">
           {/* Story */}
           <AnimatedSection>
-            <div className="space-y-5 text-sm leading-relaxed text-[#c4b8a8]">
+            <div className="space-y-5 text-sm leading-relaxed text-muted">
               <p>
                 Most agencies sell you a team of 15 people and then hand your account to an
                 overworked intern. We decided to build something different.
               </p>
               <p>
-                <strong className="text-[#f0ebe4]">2FLY Digital</strong> is a
-                two-person operation: <strong className="text-[#f0ebe4]">Bruno Lima</strong> — founder,
+                <strong className="text-text">2FLY Digital</strong> is a
+                two-person operation: <strong className="text-text">Bruno Lima</strong> — founder,
                 strategist, and the human who actually cares about your business — and an{" "}
                 <strong className="text-accent">AI co-founder</strong> that handles
                 research, content production, data analysis, and the kind of work that usually
@@ -42,8 +42,8 @@ export default function About() {
                 overhead, faster execution, better results.
               </p>
               <p>
-                We also build our own tools — <strong className="text-[#f0ebe4]">2FLY Flow</strong> for
-                client management and <strong className="text-[#f0ebe4]">BossCLAWD</strong> for
+                We also build our own tools — <strong className="text-text">2FLY Flow</strong> for
+                client management and <strong className="text-text">BossCLAWD</strong> for
                 business intelligence — because we refused to use software that wasn&apos;t built
                 for the way we work.
               </p>
@@ -54,17 +54,17 @@ export default function About() {
           <AnimatedSection delay={0.15}>
             <div className="space-y-4">
               {/* Bruno */}
-              <div className="rounded-xl border border-[#1a1a22] bg-[#0f0f14] p-6">
+              <div className="rounded-xl border border-border bg-surface p-6">
                 <div className="flex items-center gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10 text-sm font-bold text-accent">
                     BL
                   </div>
                   <div>
-                    <p className="font-semibold text-[#f0ebe4]">Bruno Lima</p>
-                    <p className="text-xs text-[#c4b8a8]">Founder &amp; Strategist</p>
+                    <p className="font-semibold text-text">Bruno Lima</p>
+                    <p className="text-xs text-muted">Founder &amp; Strategist</p>
                   </div>
                 </div>
-                <p className="mt-4 text-sm leading-relaxed text-[#c4b8a8]">
+                <p className="mt-4 text-sm leading-relaxed text-muted">
                   The human half. Builds the strategy, talks to clients, makes the calls AI
                   can&apos;t. Background in digital marketing and product — obsessed with building
                   things that actually work.
@@ -72,7 +72,7 @@ export default function About() {
               </div>
 
               {/* AI */}
-              <div className="rounded-xl border border-accent/20 bg-[#0f0f14] p-6">
+              <div className="rounded-xl border border-accent/20 bg-surface p-6">
                 <div className="flex items-center gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent/10">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-5 w-5 text-accent">
@@ -80,11 +80,11 @@ export default function About() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-[#f0ebe4]">AI Co-Founder</p>
+                    <p className="font-semibold text-text">AI Co-Founder</p>
                     <p className="text-xs text-accent">Always On</p>
                   </div>
                 </div>
-                <p className="mt-4 text-sm leading-relaxed text-[#c4b8a8]">
+                <p className="mt-4 text-sm leading-relaxed text-muted">
                   The other half. Handles research, content drafts, data analysis, ad
                   optimization, and client reporting. Works 24/7, never asks for PTO, and gets
                   smarter every week.

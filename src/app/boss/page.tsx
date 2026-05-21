@@ -12,7 +12,7 @@ import {
 
 // ── Design tokens ──
 const T = {
-  bg: "#08080c",
+  bg: "var(--bg)",
   card: "#0d1117",
   border: "#1b2332",
   text: "#c9d1d9",

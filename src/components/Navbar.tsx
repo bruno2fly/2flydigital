@@ -14,7 +14,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-[#1a1a22] bg-[#08080c]/80 backdrop-blur-xl">
+    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border bg-bg/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <Logo href="#" className="text-xl" />
@@ -25,14 +25,14 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-[#c4b8a8] transition-colors hover:text-[#f0ebe4]"
+              className="text-sm text-muted transition-colors hover:text-text"
             >
               {link.label}
             </a>
           ))}
           <a
             href="#cta"
-            className="rounded-lg bg-accent px-5 py-2 text-sm font-medium text-[#08080c] transition-colors hover:bg-accent"
+            className="rounded-lg bg-accent px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-accent"
           >
             Get Started
           </a>
@@ -41,7 +41,7 @@ export default function Navbar() {
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="p-2 text-[#c4b8a8] md:hidden"
+          className="p-2 text-muted md:hidden"
           aria-label="Toggle menu"
         >
           <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -62,7 +62,7 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="overflow-hidden border-t border-[#1a1a22] bg-[#0f0f14] md:hidden"
+            className="overflow-hidden border-t border-border bg-surface md:hidden"
           >
             <div className="flex flex-col gap-4 px-6 py-6">
               {navLinks.map((link) => (
@@ -70,7 +70,7 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-sm text-[#c4b8a8] transition-colors hover:text-[#f0ebe4]"
+                  className="text-sm text-muted transition-colors hover:text-text"
                 >
                   {link.label}
                 </a>
@@ -78,7 +78,7 @@ export default function Navbar() {
               <a
                 href="#cta"
                 onClick={() => setMobileOpen(false)}
-                className="mt-2 rounded-lg bg-accent px-5 py-2.5 text-center text-sm font-medium text-[#08080c]"
+                className="mt-2 rounded-lg bg-accent px-5 py-2.5 text-center text-sm font-medium text-white"
               >
                 Get Started
               </a>

@@ -26,7 +26,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#1a1a22] bg-[#0f0f14] px-4 py-1.5 text-xs text-[#c4b8a8]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs text-muted">
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
             AI-Native Digital Agency
           </span>
@@ -37,7 +37,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="mt-8 text-4xl font-bold leading-[1.1] tracking-tight text-[#f0ebe4] sm:text-5xl md:text-7xl"
+          className="mt-8 text-4xl font-bold leading-[1.1] tracking-tight text-text sm:text-5xl md:text-7xl"
         >
           We ship{" "}
           <span className="bg-gradient-to-r from-accent to-accent bg-clip-text text-transparent">
@@ -52,7 +52,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-[#c4b8a8] sm:text-lg"
+          className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg"
         >
           We build the tools, run the campaigns, and ship the content.
           A two-person team — one human, one AI — delivering what entire agencies can&apos;t.
@@ -67,13 +67,13 @@ export default function Hero() {
         >
           <a
             href="#cta"
-            className="rounded-lg bg-accent px-7 py-3 text-sm font-semibold text-[#08080c] transition-colors hover:bg-accent"
+            className="rounded-lg bg-accent px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent"
           >
             Start a Project
           </a>
           <a
             href="#products"
-            className="rounded-lg border border-[#1a1a22] px-7 py-3 text-sm font-medium text-[#f0ebe4] transition-colors hover:border-accent/40 hover:text-accent"
+            className="rounded-lg border border-border px-7 py-3 text-sm font-medium text-text transition-colors hover:border-accent/40 hover:text-accent"
           >
             See What We Build
           </a>
@@ -81,7 +81,7 @@ export default function Hero() {
       </div>
 
       {/* Bottom fade */}
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#08080c] to-transparent" />
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-bg to-transparent" />
     </section>
   );
 }

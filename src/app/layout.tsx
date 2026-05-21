@@ -8,6 +8,8 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const theme = process.env.NEXT_PUBLIC_THEME === "bright" ? "bright" : "dark";
+
 export const metadata: Metadata = {
   title: "2FLY Digital | Built Different. Powered by AI.",
   description:
@@ -50,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} antialiased`}>
+    <html lang="en" data-theme={theme} className={`${inter.variable} antialiased`}>
       <body className="min-h-screen bg-bg text-muted">
         <ThemeProvider>{children}</ThemeProvider>
       </body>

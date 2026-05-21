@@ -129,7 +129,7 @@ function LeadCard({ stage, paused }: { stage: StageIdx; paused: boolean }) {
       layoutId="lead-card"
       transition={{ layout: { duration: 0.7, ease: ENTRY } }}
       animate={{ boxShadow: current.glow }}
-      className="relative overflow-hidden rounded-md bg-[#101219]/80 backdrop-blur"
+      className="relative overflow-hidden rounded-md bg-surface-2/80 backdrop-blur"
       style={{ willChange: "transform" }}
     >
       <motion.div
@@ -159,7 +159,7 @@ function LeadCard({ stage, paused }: { stage: StageIdx; paused: boolean }) {
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: -4, opacity: 0 }}
                 transition={{ duration: 0.4, ease: ENTRY }}
-                className="truncate text-[13px] font-bold tracking-tight text-[#f0ebe4]"
+                className="truncate text-[13px] font-bold tracking-tight text-text"
               >
                 {current.label}
               </motion.div>
@@ -171,7 +171,7 @@ function LeadCard({ stage, paused }: { stage: StageIdx; paused: boolean }) {
                 animate={{ y: 0, opacity: 0.78 }}
                 exit={{ y: -4, opacity: 0 }}
                 transition={{ duration: 0.4, ease: ENTRY, delay: 0.04 }}
-                className="mt-0.5 flex items-center gap-1.5 truncate text-[11.5px] text-[#c4b8a8]"
+                className="mt-0.5 flex items-center gap-1.5 truncate text-[11.5px] text-muted"
               >
                 {stage === 4 ? (
                   <>
@@ -196,7 +196,7 @@ function LeadCard({ stage, paused }: { stage: StageIdx; paused: boolean }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -4 }}
                 transition={{ duration: 0.4, ease: ENTRY }}
-                className="font-mono text-[11px] leading-snug text-[#c4b8a8]/75"
+                className="font-mono text-[11px] leading-snug text-muted/75"
               >
                 &ldquo;...ceiling started leaking after the storm last night...&rdquo;
               </motion.p>
@@ -214,7 +214,7 @@ function LeadCard({ stage, paused }: { stage: StageIdx; paused: boolean }) {
                   <motion.span
                     key={chip}
                     variants={chipItem}
-                    className="rounded bg-white/5 px-2 py-0.5 text-[11px] font-medium text-[#d8cfc2] ring-1 ring-white/10 first:bg-accent/15 first:text-accent first:ring-accent/30"
+                    className="rounded bg-white/5 px-2 py-0.5 text-[11px] font-medium text-muted ring-1 ring-white/10 first:bg-accent/15 first:text-accent first:ring-accent/30"
                   >
                     {chip}
                   </motion.span>
@@ -228,7 +228,7 @@ function LeadCard({ stage, paused }: { stage: StageIdx; paused: boolean }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -4 }}
                 transition={{ duration: 0.4, ease: ENTRY }}
-                className="flex items-center gap-2 text-[11.5px] text-[#c4b8a8]"
+                className="flex items-center gap-2 text-[11.5px] text-muted"
               >
                 <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-accent/15 text-[10px] font-bold text-accent ring-1 ring-accent/30">
                   M
@@ -273,10 +273,10 @@ function Lane({
 }) {
   return (
     <div className="relative">
-      <div className="mb-2 flex items-center gap-1.5 text-[10.5px] uppercase tracking-[0.16em] text-[#c4b8a8]/55">
+      <div className="mb-2 flex items-center gap-1.5 text-[10.5px] uppercase tracking-[0.16em] text-muted/55">
         {icon}
         <span>{label}</span>
-        {sub && <span className="ml-1 normal-case tracking-normal text-[#c4b8a8]/45">· {sub}</span>}
+        {sub && <span className="ml-1 normal-case tracking-normal text-muted/45">· {sub}</span>}
       </div>
       <motion.div
         animate={{
@@ -288,7 +288,7 @@ function Lane({
       >
         {children}
         {empty && (
-          <div className="absolute inset-0 flex items-center justify-center text-[11px] text-[#c4b8a8]/45">
+          <div className="absolute inset-0 flex items-center justify-center text-[11px] text-muted/45">
             {label === "Owner inbox" ? "Awaiting routed lead..." : "Idle"}
           </div>
         )}
@@ -329,7 +329,7 @@ export default function LeadLifecycle() {
         tabIndex={0}
         animate={{ opacity: paused && !reducedMotion ? 0.78 : 1 }}
         transition={{ duration: 0.6, ease: ENTRY }}
-        className="group relative isolate w-full overflow-hidden rounded-md border border-accent/20 bg-[#08110d] p-5 outline-none shadow-2xl shadow-[0_0_24px_var(--glow)] focus-visible:ring-2 focus-visible:ring-accent/40 sm:p-8"
+        className="group relative isolate w-full overflow-hidden rounded-md border border-accent/20 bg-surface p-5 outline-none shadow-2xl shadow-[0_0_24px_var(--glow)] focus-visible:ring-2 focus-visible:ring-accent/40 sm:p-8"
       >
         <div
           aria-hidden
@@ -341,7 +341,7 @@ export default function LeadLifecycle() {
         />
 
         <div className="flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[#c4b8a8]">
+          <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-muted">
             <span className="inline-flex h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px] shadow-[0_0_24px_var(--glow)]" />
             <span>Live lead pipeline</span>
           </div>
@@ -376,7 +376,7 @@ export default function LeadLifecycle() {
           </Lane>
         </div>
 
-        <div className="mt-5 flex items-center justify-between text-[10.5px] text-[#c4b8a8]/50">
+        <div className="mt-5 flex items-center justify-between text-[10.5px] text-muted/50">
           <span>{reducedMotion ? "Static preview · reduced motion" : paused ? "Paused" : "Auto-playing · hover to pause"}</span>
           <span className="tabular-nums">9.00s loop</span>
         </div>

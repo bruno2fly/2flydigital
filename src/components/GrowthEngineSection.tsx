@@ -110,7 +110,7 @@ function ModuleCardView({ module, align = "left" }: { module: ModuleCard; align?
   return (
     <motion.div
       variants={cardVariants}
-      className="relative rounded-md border border-white/10 bg-[#11131b]/92 p-4 shadow-xl shadow-black/20 backdrop-blur"
+      className="relative rounded-md border border-white/10 bg-surface-2/92 p-4 shadow-xl shadow-black/20 backdrop-blur"
     >
       <div className="mb-4 flex items-start justify-between gap-4">
         <div className="flex items-center gap-3">
@@ -127,8 +127,8 @@ function ModuleCardView({ module, align = "left" }: { module: ModuleCard; align?
       </div>
       <div className={`flex items-end justify-between gap-4 ${align === "right" ? "md:flex-row-reverse md:text-right" : ""}`}>
         <div>
-          <h4 className="text-xl font-black leading-tight text-[#f0ebe4]">{module.title}</h4>
-          <p className="mt-3 text-xs leading-5 text-[#c4b8a8]">{module.status}</p>
+          <h4 className="text-xl font-black leading-tight text-text">{module.title}</h4>
+          <p className="mt-3 text-xs leading-5 text-muted">{module.status}</p>
         </div>
         <p className="shrink-0 rounded border border-accent/20 bg-accent/8 px-3 py-2 text-sm font-black text-accent">
           {module.metric}
@@ -144,19 +144,19 @@ function EngineCard() {
   return (
     <motion.div
       variants={cardVariants}
-      className="relative z-20 mx-auto w-full max-w-[360px] rounded-md border border-accent/35 bg-[#07110d]/95 p-6 text-center shadow-2xl shadow-[0_0_24px_var(--glow)] backdrop-blur"
+      className="relative z-20 mx-auto w-full max-w-[360px] rounded-md border border-accent/35 bg-surface/95 p-6 text-center shadow-2xl shadow-[0_0_24px_var(--glow)] backdrop-blur"
     >
       <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded border border-accent/30 bg-accent/10 text-accent">
         <Radar size={21} strokeWidth={2} />
       </div>
       <p className="text-xs font-black uppercase text-accent">2FLY GROWTH ENGINE</p>
-      <h3 className="mt-3 text-2xl font-black leading-tight text-[#f0ebe4]">
+      <h3 className="mt-3 text-2xl font-black leading-tight text-text">
         Contractor Growth System
       </h3>
       <div className="mt-6 rounded border border-white/10 bg-white/[0.04] p-4 text-left">
         <div className="flex items-center justify-between gap-4">
-          <p className="text-xs font-bold uppercase text-[#c4b8a8]">Opportunity Score</p>
-          <p className="text-sm font-black text-[#f0ebe4]">94/100</p>
+          <p className="text-xs font-bold uppercase text-muted">Opportunity Score</p>
+          <p className="text-sm font-black text-text">94/100</p>
         </div>
         <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/10">
           <motion.div
@@ -190,18 +190,18 @@ export default function GrowthEngineSection() {
           </motion.p>
           <motion.h2
             variants={cardVariants}
-            className="mt-4 text-3xl font-black leading-[1.05] text-[#f0ebe4] sm:text-4xl md:text-5xl"
+            className="mt-4 text-3xl font-black leading-[1.05] text-text sm:text-4xl md:text-5xl"
           >
             {sectionCopy.headline}
           </motion.h2>
-          <motion.p variants={cardVariants} className="mt-5 text-base leading-7 text-[#c4b8a8] sm:text-lg">
+          <motion.p variants={cardVariants} className="mt-5 text-base leading-7 text-muted sm:text-lg">
             {sectionCopy.body}
           </motion.p>
           <motion.div variants={containerVariants} className="mt-9 grid gap-3 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
             {stats.map((stat) => (
-              <motion.div key={stat.label} variants={cardVariants} className="rounded-md border border-white/10 bg-[#101219] p-5">
+              <motion.div key={stat.label} variants={cardVariants} className="rounded-md border border-white/10 bg-surface-2 p-5">
                 <p className="text-sm font-black uppercase leading-5 text-accent">{stat.label}</p>
-                <p className="mt-4 text-3xl font-black leading-none text-[#f0ebe4]">{stat.value}</p>
+                <p className="mt-4 text-3xl font-black leading-none text-text">{stat.value}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -212,7 +212,7 @@ export default function GrowthEngineSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="relative overflow-hidden rounded-md border border-white/10 bg-[#0b0e13] p-5 shadow-2xl shadow-black/35 md:min-h-[650px] md:p-8"
+          className="relative overflow-hidden rounded-md border border-white/10 bg-surface p-5 shadow-2xl shadow-black/35 md:min-h-[650px] md:p-8"
         >
           <div
             className="absolute inset-0 opacity-[0.06]"

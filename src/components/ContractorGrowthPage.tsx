@@ -210,7 +210,7 @@ function PrimaryCta({ children }: { children: ReactNode }) {
   return (
     <Link
       href={consultationHref}
-      className="inline-flex min-h-12 items-center justify-center rounded-md bg-accent px-6 py-3 text-sm font-bold text-[#07110d] transition hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-[#08080c]"
+      className="inline-flex min-h-12 items-center justify-center rounded-md bg-accent px-6 py-3 text-sm font-bold text-white transition hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg"
     >
       {children}
     </Link>
@@ -221,7 +221,7 @@ function SecondaryCta({ href, children }: { href: string; children: ReactNode })
   return (
     <a
       href={href}
-      className="inline-flex min-h-12 items-center justify-center rounded-md border border-white/15 px-6 py-3 text-sm font-bold text-[#f0ebe4] transition hover:border-accent/60 hover:text-accent"
+      className="inline-flex min-h-12 items-center justify-center rounded-md border border-white/15 px-6 py-3 text-sm font-bold text-text transition hover:border-accent/60 hover:text-accent"
     >
       {children}
     </a>
@@ -242,10 +242,10 @@ function SectionIntro({
   return (
     <div className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
       <p className="text-sm font-bold uppercase text-accent">{eyebrow}</p>
-      <h2 className="mt-4 text-3xl font-black leading-[1.05] text-[#f0ebe4] sm:text-4xl md:text-5xl">
+      <h2 className="mt-4 text-3xl font-black leading-[1.05] text-text sm:text-4xl md:text-5xl">
         {title}
       </h2>
-      <p className="mt-5 text-base leading-7 text-[#c4b8a8] sm:text-lg">{body}</p>
+      <p className="mt-5 text-base leading-7 text-muted sm:text-lg">{body}</p>
     </div>
   );
 }
@@ -254,7 +254,7 @@ function HeroSystemVisual() {
   const signalLabels = ["Ads", "SEO", "AI", "Site", "Calls", "SMS"];
 
   return (
-    <div className="relative min-h-[520px] overflow-hidden rounded-md border border-white/10 bg-[#0c0e13] p-5 shadow-2xl shadow-black/40">
+    <div className="relative min-h-[520px] overflow-hidden rounded-md border border-white/10 bg-surface p-5 shadow-2xl shadow-black/40">
       <div
         className="absolute inset-0 opacity-[0.07]"
         style={{
@@ -289,7 +289,7 @@ function HeroSystemVisual() {
         return (
           <motion.div
             key={label}
-            className={`absolute ${positions[index]} rounded-md border border-white/10 bg-[#111820]/90 px-4 py-3 text-sm font-bold text-[#f0ebe4] shadow-xl shadow-black/20 backdrop-blur`}
+            className={`absolute ${positions[index]} rounded-md border border-white/10 bg-surface-2/90 px-4 py-3 text-sm font-bold text-text shadow-xl shadow-black/20 backdrop-blur`}
             animate={{ y: [0, -8, 0], opacity: [0.78, 1, 0.78] }}
             transition={{ duration: 4.2, repeat: Infinity, delay: index * 0.35 }}
           >
@@ -300,16 +300,16 @@ function HeroSystemVisual() {
       })}
 
       <motion.div
-        className="absolute left-1/2 top-1/2 w-[min(78%,360px)] -translate-x-1/2 -translate-y-1/2 rounded-md border border-accent/30 bg-[#08110d]/95 p-6 text-center shadow-2xl shadow-[0_0_24px_var(--glow)]"
+        className="absolute left-1/2 top-1/2 w-[min(78%,360px)] -translate-x-1/2 -translate-y-1/2 rounded-md border border-accent/30 bg-surface/95 p-6 text-center shadow-2xl shadow-[0_0_24px_var(--glow)]"
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7, delay: 0.25 }}
       >
         <p className="text-xs font-bold uppercase text-accent">2FLY Operating System</p>
-        <p className="mt-3 text-2xl font-black leading-tight text-[#f0ebe4]">
+        <p className="mt-3 text-2xl font-black leading-tight text-text">
           Leads routed, qualified, followed up, and reported.
         </p>
-        <div className="mt-5 grid grid-cols-3 gap-2 text-xs text-[#c4b8a8]">
+        <div className="mt-5 grid grid-cols-3 gap-2 text-xs text-muted">
           {["24/7 agent", "Fast reply", "Owner view"].map((item) => (
             <div key={item} className="rounded border border-white/10 bg-white/[0.03] px-2 py-2">
               {item}
@@ -318,7 +318,7 @@ function HeroSystemVisual() {
         </div>
       </motion.div>
 
-      <div className="absolute inset-x-5 bottom-5 grid grid-cols-3 gap-2 text-xs text-[#c4b8a8] sm:gap-3">
+      <div className="absolute inset-x-5 bottom-5 grid grid-cols-3 gap-2 text-xs text-muted sm:gap-3">
         {["Lead quality", "Response time", "Booked jobs"].map((metric, index) => (
           <motion.div
             key={metric}
@@ -343,27 +343,27 @@ function HeroSystemVisual() {
 
 export default function ContractorGrowthPage() {
   return (
-    <div className="min-h-screen overflow-hidden bg-[#08080c] text-[#c4b8a8]">
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#08080c]/82 backdrop-blur-xl">
+    <div className="min-h-screen overflow-hidden bg-bg text-muted">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-bg/82 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-6">
           <Logo className="text-xl" />
-          <nav className="hidden items-center gap-7 text-sm font-medium text-[#c4b8a8] lg:flex">
-            <a className="hover:text-[#f0ebe4]" href="#system">
+          <nav className="hidden items-center gap-7 text-sm font-medium text-muted lg:flex">
+            <a className="hover:text-text" href="#system">
               System
             </a>
-            <a className="hover:text-[#f0ebe4]" href="#agent">
+            <a className="hover:text-text" href="#agent">
               AI Agent
             </a>
-            <a className="hover:text-[#f0ebe4]" href="#trades">
+            <a className="hover:text-text" href="#trades">
               Trades
             </a>
-            <a className="hover:text-[#f0ebe4]" href="#offer">
+            <a className="hover:text-text" href="#offer">
               Pricing
             </a>
-            <a className="hover:text-[#f0ebe4]" href="#addons">
+            <a className="hover:text-text" href="#addons">
               Add-ons
             </a>
-            <a className="hover:text-[#f0ebe4]" href="#faq">
+            <a className="hover:text-text" href="#faq">
               FAQ
             </a>
           </nav>
@@ -372,7 +372,7 @@ export default function ContractorGrowthPage() {
           </div>
           <Link
             href={consultationHref}
-            className="inline-flex min-h-10 items-center justify-center rounded-md bg-accent px-4 py-2 text-sm font-bold text-[#07110d] transition hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-[#08080c] sm:hidden"
+            className="inline-flex min-h-10 items-center justify-center rounded-md bg-accent px-4 py-2 text-sm font-bold text-white transition hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg sm:hidden"
           >
             Book
           </Link>
@@ -402,7 +402,7 @@ export default function ContractorGrowthPage() {
                 AI-powered growth operating system for contractors
               </motion.p>
               <motion.h1
-                className="mt-7 max-w-4xl text-5xl font-black leading-[0.96] text-[#f0ebe4] sm:text-6xl lg:text-7xl"
+                className="mt-7 max-w-4xl text-5xl font-black leading-[0.96] text-text sm:text-6xl lg:text-7xl"
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 0.12 }}
@@ -410,7 +410,7 @@ export default function ContractorGrowthPage() {
                 The unfair AI advantage for contractors.
               </motion.h1>
               <motion.p
-                className="mt-6 max-w-2xl text-lg leading-8 text-[#d8cfc2]"
+                className="mt-6 max-w-2xl text-lg leading-8 text-muted"
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 0.24 }}
@@ -428,7 +428,7 @@ export default function ContractorGrowthPage() {
                 <SecondaryCta href="#system">See the system</SecondaryCta>
               </motion.div>
               <motion.div
-                className="mt-9 grid max-w-2xl gap-3 text-sm text-[#c4b8a8] sm:grid-cols-3"
+                className="mt-9 grid max-w-2xl gap-3 text-sm text-muted sm:grid-cols-3"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.7, delay: 0.5 }}
@@ -447,8 +447,8 @@ export default function ContractorGrowthPage() {
               >
                 {proofStats.map((stat) => (
                   <div key={stat.label} className="border-white/10 px-2 py-3 sm:border-l sm:first:border-l-0">
-                    <p className="text-2xl font-black leading-none text-[#f0ebe4]">{stat.value}</p>
-                    <p className="mt-2 text-xs font-bold uppercase leading-5 text-[#c4b8a8]">{stat.label}</p>
+                    <p className="text-2xl font-black leading-none text-text">{stat.value}</p>
+                    <p className="mt-2 text-xs font-bold uppercase leading-5 text-muted">{stat.label}</p>
                   </div>
                 ))}
               </motion.div>
@@ -457,7 +457,7 @@ export default function ContractorGrowthPage() {
           </div>
         </section>
 
-        <section className="border-y border-white/10 bg-[#0b0d11] px-5 py-20 sm:px-6 md:py-28">
+        <section className="border-y border-white/10 bg-surface px-5 py-20 sm:px-6 md:py-28">
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr]">
             <SectionIntro
               eyebrow="The reframe"
@@ -466,9 +466,9 @@ export default function ContractorGrowthPage() {
             />
             <div className="grid gap-4 sm:grid-cols-2">
               {losses.map((item) => (
-                <div key={item.title} className="rounded-md border border-white/10 bg-[#101219] p-6">
-                  <h3 className="text-xl font-black leading-tight text-[#f0ebe4]">{item.title}</h3>
-                  <p className="mt-4 text-sm leading-6 text-[#c4b8a8]">{item.body}</p>
+                <div key={item.title} className="rounded-md border border-white/10 bg-surface-2 p-6">
+                  <h3 className="text-xl font-black leading-tight text-text">{item.title}</h3>
+                  <p className="mt-4 text-sm leading-6 text-muted">{item.body}</p>
                 </div>
               ))}
             </div>
@@ -486,7 +486,7 @@ export default function ContractorGrowthPage() {
               {leakMap.map((item, index) => (
                 <motion.div
                   key={item.stage}
-                  className="rounded-md border border-white/10 bg-[#101219] p-6"
+                  className="rounded-md border border-white/10 bg-surface-2 p-6"
                   initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
@@ -495,9 +495,9 @@ export default function ContractorGrowthPage() {
                   <div className="mb-6 flex h-11 w-11 items-center justify-center rounded border border-accent/25 bg-accent/10 text-sm font-black text-accent">
                     0{index + 1}
                   </div>
-                  <h3 className="text-xl font-black leading-tight text-[#f0ebe4]">{item.stage}</h3>
-                  <p className="mt-4 text-sm font-bold leading-6 text-[#d8cfc2]">{item.leak}</p>
-                  <p className="mt-4 border-t border-white/10 pt-4 text-sm leading-6 text-[#c4b8a8]">
+                  <h3 className="text-xl font-black leading-tight text-text">{item.stage}</h3>
+                  <p className="mt-4 text-sm font-bold leading-6 text-muted">{item.leak}</p>
+                  <p className="mt-4 border-t border-white/10 pt-4 text-sm leading-6 text-muted">
                     {item.fix}
                   </p>
                 </motion.div>
@@ -508,7 +508,7 @@ export default function ContractorGrowthPage() {
 
         <GrowthEngineSection />
 
-        <section id="agent" className="border-y border-white/10 bg-[#0b0d11] px-5 py-20 sm:px-6 md:py-28">
+        <section id="agent" className="border-y border-white/10 bg-surface px-5 py-20 sm:px-6 md:py-28">
           <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
             <LeadLifecycle />
             <SectionIntro
@@ -531,15 +531,15 @@ export default function ContractorGrowthPage() {
               {pipelineSteps.map((step, index) => (
                 <motion.div
                   key={step.title}
-                  className="relative rounded-md border border-white/10 bg-[#101219] p-5"
+                  className="relative rounded-md border border-white/10 bg-surface-2 p-5"
                   initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.42, delay: index * 0.05 }}
                 >
                   <p className="text-xs font-black uppercase text-accent">Step {index + 1}</p>
-                  <h3 className="mt-3 text-xl font-black text-[#f0ebe4]">{step.title}</h3>
-                  <p className="mt-4 text-sm leading-6 text-[#c4b8a8]">{step.body}</p>
+                  <h3 className="mt-3 text-xl font-black text-text">{step.title}</h3>
+                  <p className="mt-4 text-sm leading-6 text-muted">{step.body}</p>
                 </motion.div>
               ))}
             </div>
@@ -555,7 +555,7 @@ export default function ContractorGrowthPage() {
             />
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
               {trades.map((trade) => (
-                <div key={trade} className="rounded-md border border-white/10 bg-[#101219] px-4 py-5 text-sm font-bold text-[#f0ebe4]">
+                <div key={trade} className="rounded-md border border-white/10 bg-surface-2 px-4 py-5 text-sm font-bold text-text">
                   {trade}
                 </div>
               ))}
@@ -563,39 +563,39 @@ export default function ContractorGrowthPage() {
           </div>
         </section>
 
-        <section id="offer" className="border-y border-white/10 bg-[#0b0d11] px-5 py-20 sm:px-6 md:py-28">
+        <section id="offer" className="border-y border-white/10 bg-surface px-5 py-20 sm:px-6 md:py-28">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_0.72fr]">
-            <div className="rounded-md border border-white/10 bg-[#101219] p-7 md:p-10">
+            <div className="rounded-md border border-white/10 bg-surface-2 p-7 md:p-10">
               <p className="text-sm font-bold uppercase text-accent">Starting offer</p>
-              <h2 className="mt-4 text-4xl font-black leading-tight text-[#f0ebe4] sm:text-5xl">
+              <h2 className="mt-4 text-4xl font-black leading-tight text-text sm:text-5xl">
                 Contractor Growth System
               </h2>
-              <p className="mt-5 max-w-3xl text-base leading-7 text-[#c4b8a8]">
+              <p className="mt-5 max-w-3xl text-base leading-7 text-muted">
                 Start with the essential operating system for lead generation, conversion, AI
                 visibility, basic follow-up, and reporting. Expand when the data shows where the ceiling is.
               </p>
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {offerItems.map((item) => (
-                  <div key={item} className="rounded border border-white/10 bg-black/20 p-4 text-sm leading-6 text-[#d8cfc2]">
+                  <div key={item} className="rounded border border-white/10 bg-black/20 p-4 text-sm leading-6 text-muted">
                     <span className="mr-2 text-accent">/</span>
                     {item}
                   </div>
                 ))}
               </div>
             </div>
-            <div className="rounded-md border border-accent/30 bg-[#08110d] p-7 shadow-2xl shadow-[0_0_24px_var(--glow)] md:p-8">
-              <p className="text-sm font-bold text-[#c4b8a8]">Starting at</p>
+            <div className="rounded-md border border-accent/30 bg-surface p-7 shadow-2xl shadow-[0_0_24px_var(--glow)] md:p-8">
+              <p className="text-sm font-bold text-muted">Starting at</p>
               <div className="mt-3 flex items-end gap-2">
-                <span className="text-6xl font-black leading-none text-[#f0ebe4]">$1,000</span>
-                <span className="pb-2 text-sm font-bold text-[#c4b8a8]">/month</span>
+                <span className="text-6xl font-black leading-none text-text">$1,000</span>
+                <span className="pb-2 text-sm font-bold text-muted">/month</span>
               </div>
-              <p className="mt-5 text-sm leading-6 text-[#c4b8a8]">
+              <p className="mt-5 text-sm leading-6 text-muted">
                 Built for contractors who need more leads, better follow-up, more estimates, and
                 more jobs without immediately hiring more people. Ad spend is separate.
               </p>
               <div className="mt-6 border-t border-white/10 pt-6">
                 <p className="text-xs font-bold uppercase text-accent">Core includes</p>
-                <p className="mt-3 text-sm leading-6 text-[#d8cfc2]">
+                <p className="mt-3 text-sm leading-6 text-muted">
                   Google Ads, SEO / local visibility, AI Search / GEO visibility, website conversion
                   improvement, basic follow-up, and monthly reporting.
                 </p>
@@ -619,19 +619,19 @@ export default function ContractorGrowthPage() {
                 {addOns.map((addOn, index) => (
                   <motion.div
                     key={addOn.name}
-                    className="rounded-md border border-white/10 bg-[#101219] p-6"
+                    className="rounded-md border border-white/10 bg-surface-2 p-6"
                     initial={{ opacity: 0, y: 18 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
                     transition={{ duration: 0.42, delay: index * 0.04 }}
                   >
                     <div className="flex min-h-12 items-start justify-between gap-5">
-                      <h3 className="text-lg font-black leading-tight text-[#f0ebe4]">{addOn.name}</h3>
+                      <h3 className="text-lg font-black leading-tight text-text">{addOn.name}</h3>
                       <p className="shrink-0 rounded border border-accent/25 bg-accent/10 px-3 py-2 text-right text-xs font-black text-accent">
                         {addOn.price}
                       </p>
                     </div>
-                    <p className="mt-5 text-sm leading-6 text-[#c4b8a8]">{addOn.body}</p>
+                    <p className="mt-5 text-sm leading-6 text-muted">{addOn.body}</p>
                   </motion.div>
                 ))}
               </div>
@@ -639,13 +639,13 @@ export default function ContractorGrowthPage() {
           </div>
         </section>
 
-        <section className="border-y border-white/10 bg-[#0b0d11] px-5 py-20 sm:px-6 md:py-28">
+        <section className="border-y border-white/10 bg-surface px-5 py-20 sm:px-6 md:py-28">
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="grid gap-4 sm:grid-cols-2">
               {differences.map((item) => (
-                <div key={item.title} className="rounded-md border border-white/10 bg-[#101219] p-6">
-                  <h3 className="text-xl font-black leading-tight text-[#f0ebe4]">{item.title}</h3>
-                  <p className="mt-4 text-sm leading-6 text-[#c4b8a8]">{item.body}</p>
+                <div key={item.title} className="rounded-md border border-white/10 bg-surface-2 p-6">
+                  <h3 className="text-xl font-black leading-tight text-text">{item.title}</h3>
+                  <p className="mt-4 text-sm leading-6 text-muted">{item.body}</p>
                 </div>
               ))}
             </div>
@@ -664,11 +664,11 @@ export default function ContractorGrowthPage() {
             body="A good contractor growth system should be clear about cost, scope, ownership, and what happens next."
             align="center"
           />
-          <div className="mx-auto mt-12 max-w-4xl divide-y divide-white/10 rounded-md border border-white/10 bg-[#101219]">
+          <div className="mx-auto mt-12 max-w-4xl divide-y divide-white/10 rounded-md border border-white/10 bg-surface-2">
             {faqs.map((faq) => (
               <div key={faq.question} className="p-6">
-                <h3 className="text-lg font-black text-[#f0ebe4]">{faq.question}</h3>
-                <p className="mt-3 text-sm leading-6 text-[#c4b8a8]">{faq.answer}</p>
+                <h3 className="text-lg font-black text-text">{faq.question}</h3>
+                <p className="mt-3 text-sm leading-6 text-muted">{faq.answer}</p>
               </div>
             ))}
           </div>
@@ -678,10 +678,10 @@ export default function ContractorGrowthPage() {
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,color-mix(in_srgb,var(--accent)_14%,transparent),transparent_38%)]" />
           <div className="relative mx-auto max-w-4xl text-center">
             <p className="text-sm font-bold uppercase text-accent">Next step</p>
-            <h2 className="mt-4 text-4xl font-black leading-tight text-[#f0ebe4] sm:text-5xl">
+            <h2 className="mt-4 text-4xl font-black leading-tight text-text sm:text-5xl">
               Put an unfair growth system behind your contracting company.
             </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-[#c4b8a8]">
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted">
               We will review your market, current site, search visibility, lead response, and where
               the fastest win should come from.
             </p>
@@ -692,11 +692,11 @@ export default function ContractorGrowthPage() {
               </SecondaryCta>
             </div>
 
-            <div className="mt-12 rounded-md border border-white/10 bg-[#101219] p-6 text-left">
+            <div className="mt-12 rounded-md border border-white/10 bg-surface-2 p-6 text-left">
               <p className="text-sm font-bold uppercase text-accent">Contractors page checklist</p>
               <div className="mt-5 grid gap-3 md:grid-cols-2">
                 {nextBuildChecklist.map((item) => (
-                  <div key={item} className="rounded border border-white/10 bg-black/20 px-4 py-3 text-sm leading-6 text-[#d8cfc2]">
+                  <div key={item} className="rounded border border-white/10 bg-black/20 px-4 py-3 text-sm leading-6 text-muted">
                     <span className="mr-2 text-accent">/</span>
                     {item}
                   </div>
@@ -708,10 +708,10 @@ export default function ContractorGrowthPage() {
       </main>
 
       <footer className="border-t border-white/10 px-5 py-10 sm:px-6">
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 text-sm text-[#c4b8a8] md:flex-row md:items-center">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 text-sm text-muted md:flex-row md:items-center">
           <Logo className="text-xl" />
           <p>AI-powered contractor growth operating system.</p>
-          <a className="hover:text-[#f0ebe4]" href="mailto:hello@2flydigital.com">
+          <a className="hover:text-text" href="mailto:hello@2flydigital.com">
             hello@2flydigital.com
           </a>
         </div>
