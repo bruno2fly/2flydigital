@@ -39,14 +39,12 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="mt-8 text-4xl font-bold leading-[1.1] tracking-tight text-[#f0ebe4] sm:text-5xl md:text-7xl"
         >
-          Your agency runs
-          <br />
-          on vibes.{" "}
+          We ship{" "}
           <span className="bg-gradient-to-r from-emerald-400 to-emerald-300 bg-clip-text text-transparent">
-            Ours runs
-            <br />
-            on AI.
+            while others
           </span>
+          <br />
+          sleep.
         </motion.h1>
 
         {/* Subhead */}
