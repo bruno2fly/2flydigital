@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import GrowthEngineSection from "./GrowthEngineSection";
 import LeadLifecycle from "./LeadLifecycle";
+import Logo from "./site/Logo";
 
 const consultationHref = "/consultation";
 
@@ -195,6 +196,16 @@ const faqs = [
   },
 ];
 
+const nextBuildChecklist = [
+  "Lock the website agent to lead capture only, not general support.",
+  "Define the exact fields to collect: name, phone, email, trade, city, and need.",
+  "Write the short qualification flow and fallback replies.",
+  "Choose the low-cost API/model for the website agent.",
+  "Build the website chat widget and connect it to the contractor page.",
+  "Send captured leads to email first, SMS later if needed.",
+  "Test the full lead flow on desktop and mobile before launch.",
+];
+
 function PrimaryCta({ children }: { children: ReactNode }) {
   return (
     <Link
@@ -335,9 +346,7 @@ export default function ContractorGrowthPage() {
     <div className="min-h-screen overflow-hidden bg-[#08080c] text-[#c4b8a8]">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#08080c]/82 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-6">
-          <Link href="/" className="text-xl font-black text-[#f0ebe4]" aria-label="2FLY home">
-            2FLY<span className="text-accent">.</span>
-          </Link>
+          <Logo className="text-xl" />
           <nav className="hidden items-center gap-7 text-sm font-medium text-[#c4b8a8] lg:flex">
             <a className="hover:text-[#f0ebe4]" href="#system">
               System
@@ -682,15 +691,25 @@ export default function ContractorGrowthPage() {
                 Email hello@2flydigital.com
               </SecondaryCta>
             </div>
+
+            <div className="mt-12 rounded-md border border-white/10 bg-[#101219] p-6 text-left">
+              <p className="text-sm font-bold uppercase text-accent">Contractors page checklist</p>
+              <div className="mt-5 grid gap-3 md:grid-cols-2">
+                {nextBuildChecklist.map((item) => (
+                  <div key={item} className="rounded border border-white/10 bg-black/20 px-4 py-3 text-sm leading-6 text-[#d8cfc2]">
+                    <span className="mr-2 text-accent">/</span>
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
       </main>
 
       <footer className="border-t border-white/10 px-5 py-10 sm:px-6">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 text-sm text-[#c4b8a8] md:flex-row md:items-center">
-          <Link href="/" className="text-xl font-black text-[#f0ebe4]">
-            2FLY<span className="text-accent">.</span>
-          </Link>
+          <Logo className="text-xl" />
           <p>AI-powered contractor growth operating system.</p>
           <a className="hover:text-[#f0ebe4]" href="mailto:hello@2flydigital.com">
             hello@2flydigital.com

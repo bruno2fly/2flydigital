@@ -12,9 +12,12 @@ export default function CafeStPetersburgReport() {
   const [checking, setChecking] = useState(true);
 
   useEffect(() => {
-    const stored = sessionStorage.getItem(SESSION_KEY);
-    if (stored === "true") setUnlocked(true);
-    setChecking(false);
+    const id = window.setTimeout(() => {
+      const stored = sessionStorage.getItem(SESSION_KEY);
+      if (stored === "true") setUnlocked(true);
+      setChecking(false);
+    }, 0);
+    return () => window.clearTimeout(id);
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -65,7 +68,7 @@ export default function CafeStPetersburgReport() {
           color: "#C9A84C",
           marginBottom: "8px",
         }}>
-          2FLY<span style={{ color: "#4a7a4a" }}>.</span> Digital Marketing
+          2FLY<span style={{ color: "var(--accent)" }}>.</span> Digital Marketing
         </div>
 
         {/* Title */}

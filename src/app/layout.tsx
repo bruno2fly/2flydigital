@@ -26,6 +26,14 @@ export const metadata: Metadata = {
     description:
       "Your agency runs on vibes. Ours runs on AI. Products, campaigns, and results from a new kind of agency.",
     type: "website",
+    images: ["/brand/2fly-mark.svg"],
+  },
+  icons: {
+    icon: [
+      { url: "/brand/2fly-mark.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [{ url: "/brand/2fly-mark.svg", type: "image/svg+xml" }],
   },
 };
 

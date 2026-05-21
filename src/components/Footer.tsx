@@ -1,3 +1,5 @@
+import Logo from "./site/Logo";
+
 export default function Footer() {
   return (
     <footer className="border-t border-[#1a1a22] px-6 py-12">
@@ -5,9 +7,7 @@ export default function Footer() {
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
           {/* Brand */}
           <div>
-            <a href="#" className="text-xl font-bold tracking-tight text-[#f0ebe4]">
-              2FLY<span className="text-accent">.</span>
-            </a>
+            <Logo href="#" className="text-xl" />
             <p className="mt-2 text-sm text-[#c4b8a8]">
               Built Different. Powered by AI.
             </p>

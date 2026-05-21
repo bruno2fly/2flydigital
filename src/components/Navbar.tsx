@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Logo from "./site/Logo";
 
 const navLinks = [
   { label: "Products", href: "#products" },
@@ -16,9 +17,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 border-b border-[#1a1a22] bg-[#08080c]/80 backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         {/* Logo */}
-        <a href="#" className="text-xl font-bold tracking-tight text-[#f0ebe4]">
-          2FLY<span className="text-accent">.</span>
-        </a>
+        <Logo href="#" className="text-xl" />
 
         {/* Desktop links */}
         <div className="hidden items-center gap-8 md:flex">
