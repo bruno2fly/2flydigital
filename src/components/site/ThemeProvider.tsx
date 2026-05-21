@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 import type { ThemeName } from "@/lib/tokens/colors";
 
 const envTheme = process.env.NEXT_PUBLIC_THEME;
-const theme: ThemeName = envTheme === "bright" ? "bright" : "dark";
+const theme: ThemeName = envTheme === "dark" ? "dark" : "bright";
 
 export default function ThemeProvider({ children }: { children: ReactNode }) {
   useEffect(() => {

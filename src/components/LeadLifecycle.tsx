@@ -18,42 +18,42 @@ const stages = [
     label: "Missed call",
     sub: "Sarasota · Roof leak",
     tone: "rose",
-    accent: "from-rose-500/30 to-amber-500/20",
-    glow: "0 0 0 1px rgba(244,63,94,.30), 0 18px 50px -20px rgba(244,63,94,.35)",
+    accent: "from-rose-200/70 to-amber-100/50",
+    glow: "0 0 0 1px rgba(244,63,94,.30), 0 18px 50px -20px rgba(244,63,94,.30)",
   },
   {
     label: "2FLY AI captured",
     sub: "Parsing transcript · 1.2s",
     tone: "amber",
-    accent: "from-accent/25 to-accent/15",
-    glow: "0 0 0 1px color-mix(in srgb, var(--accent) 25%, transparent), 0 18px 50px -20px color-mix(in srgb, var(--accent) 25%, transparent)",
+    accent: "from-accent/15 to-accent/5",
+    glow: "0 0 0 1px color-mix(in srgb, var(--accent) 25%, transparent), 0 18px 50px -20px color-mix(in srgb, var(--accent) 30%, transparent)",
   },
   {
     label: "Qualified · Urgent",
     sub: "Confidence 94%",
     tone: "emerald",
-    accent: "from-accent/20 to-accent/10",
-    glow: "0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent), 0 18px 50px -20px color-mix(in srgb, var(--accent) 30%, transparent)",
+    accent: "from-accent/15 to-accent/5",
+    glow: "0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent), 0 18px 50px -20px color-mix(in srgb, var(--accent) 35%, transparent)",
   },
   {
     label: "Routed to owner",
     sub: "Mike Harlan · SLA rule",
     tone: "emerald",
-    accent: "from-accent/20 to-accent/10",
-    glow: "0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent), 0 18px 50px -20px color-mix(in srgb, var(--accent) 35%, transparent)",
+    accent: "from-accent/15 to-accent/5",
+    glow: "0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent), 0 18px 50px -20px color-mix(in srgb, var(--accent) 40%, transparent)",
   },
   {
     label: "Estimate sent",
     sub: "response time",
     tone: "emerald",
-    accent: "from-accent/20 to-accent/10",
-    glow: "0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent), 0 20px 60px -16px color-mix(in srgb, var(--accent) 40%, transparent)",
+    accent: "from-accent/15 to-accent/5",
+    glow: "0 0 0 1px color-mix(in srgb, var(--accent) 40%, transparent), 0 20px 60px -16px color-mix(in srgb, var(--accent) 45%, transparent)",
   },
   {
     label: "Booked job",
     sub: "Tomorrow · 10:30 AM",
     tone: "emerald",
-    accent: "from-accent/35 to-accent/15",
+    accent: "from-accent/25 to-accent/10",
     glow: "0 0 0 1px color-mix(in srgb, var(--accent) 55%, transparent), 0 24px 70px -10px color-mix(in srgb, var(--accent) 55%, transparent)",
   },
 ] as const;
@@ -102,17 +102,17 @@ function StageIcon({ stage, paused }: { stage: StageIdx; paused: boolean }) {
   if (stage === 0) {
     return (
       <span className="relative inline-flex items-center justify-center">
-        <Phone size={18} className="text-rose-300" />
+        <Phone size={18} className="text-rose-500" />
         <motion.span
           aria-hidden
-          className="absolute -inset-1 rounded-full ring-2 ring-rose-400/50"
+          className="absolute -inset-1 rounded-full ring-2 ring-rose-400/60"
           animate={paused ? { opacity: 0.25, scale: 1.05 } : { opacity: [0.7, 0, 0.7], scale: [0.85, 1.4, 0.85] }}
           transition={paused ? { duration: 0.5, ease: EXIT } : { duration: 1.4, ease: "linear", repeat: Infinity }}
         />
       </span>
     );
   }
-  if (stage === 1) return <WandSparkles size={18} className="text-amber-200" />;
+  if (stage === 1) return <WandSparkles size={18} className="text-amber-500" />;
   if (stage === 2) return <Check size={18} className="text-accent" />;
   if (stage === 3) return <UserRound size={18} className="text-accent" />;
   if (stage === 4) return <Clock size={18} className="text-accent" />;
@@ -129,12 +129,12 @@ function LeadCard({ stage, paused }: { stage: StageIdx; paused: boolean }) {
       layoutId="lead-card"
       transition={{ layout: { duration: 0.7, ease: ENTRY } }}
       animate={{ boxShadow: current.glow }}
-      className="relative overflow-hidden rounded-md bg-surface-2/80 backdrop-blur"
+      className="relative overflow-hidden rounded-xl border border-border bg-white/95 backdrop-blur"
       style={{ willChange: "transform" }}
     >
       <motion.div
         aria-hidden
-        animate={isBooked && !paused ? { opacity: [0.45, 0.95, 0.45] } : { opacity: 0.7 }}
+        animate={isBooked && !paused ? { opacity: [0.55, 0.95, 0.55] } : { opacity: 0.85 }}
         transition={isBooked && !paused ? { duration: 2.2, ease: "linear", repeat: Infinity } : { duration: 0.6, ease: ENTRY }}
         className={`absolute inset-0 -z-10 bg-gradient-to-br ${current.accent}`}
       />
@@ -146,7 +146,7 @@ function LeadCard({ stage, paused }: { stage: StageIdx; paused: boolean }) {
             initial={{ scale: 0.7, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5, ease: ENTRY }}
-            className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white/[0.04] ring-1 ring-white/10"
+            className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-white ring-1 ring-border shadow-sm"
           >
             <StageIcon stage={stage} paused={paused} />
           </motion.span>
@@ -196,7 +196,7 @@ function LeadCard({ stage, paused }: { stage: StageIdx; paused: boolean }) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -4 }}
                 transition={{ duration: 0.4, ease: ENTRY }}
-                className="font-mono text-[11px] leading-snug text-muted/75"
+                className="font-mono text-[11px] leading-snug text-muted"
               >
                 &ldquo;...ceiling started leaking after the storm last night...&rdquo;
               </motion.p>
@@ -214,7 +214,7 @@ function LeadCard({ stage, paused }: { stage: StageIdx; paused: boolean }) {
                   <motion.span
                     key={chip}
                     variants={chipItem}
-                    className="rounded bg-white/5 px-2 py-0.5 text-[11px] font-medium text-muted ring-1 ring-white/10 first:bg-accent/15 first:text-accent first:ring-accent/30"
+                    className="rounded-md bg-surface-2 px-2 py-0.5 text-[11px] font-medium text-muted ring-1 ring-border first:bg-accent-soft first:text-accent first:ring-accent/30"
                   >
                     {chip}
                   </motion.span>
@@ -230,7 +230,7 @@ function LeadCard({ stage, paused }: { stage: StageIdx; paused: boolean }) {
                 transition={{ duration: 0.4, ease: ENTRY }}
                 className="flex items-center gap-2 text-[11.5px] text-muted"
               >
-                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-accent/15 text-[10px] font-bold text-accent ring-1 ring-accent/30">
+                <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-accent-soft text-[10px] font-bold text-accent ring-1 ring-accent/30">
                   M
                 </span>
                 <span>Pinged via SLA rule · 12s</span>
@@ -273,22 +273,22 @@ function Lane({
 }) {
   return (
     <div className="relative">
-      <div className="mb-2 flex items-center gap-1.5 text-[10.5px] uppercase tracking-[0.16em] text-muted/55">
+      <div className="mb-2 flex items-center gap-1.5 text-[10.5px] uppercase tracking-[0.16em] text-muted">
         {icon}
         <span>{label}</span>
-        {sub && <span className="ml-1 normal-case tracking-normal text-muted/45">· {sub}</span>}
+        {sub && <span className="ml-1 normal-case tracking-normal text-muted/70">· {sub}</span>}
       </div>
       <motion.div
         animate={{
-          borderColor: highlight ? "color-mix(in srgb, var(--accent) 28%, transparent)" : "rgba(255,255,255,0.08)",
-          backgroundColor: highlight ? "color-mix(in srgb, var(--accent) 3.5%, transparent)" : "rgba(255,255,255,0.012)",
+          borderColor: highlight ? "color-mix(in srgb, var(--accent) 35%, transparent)" : "rgba(11,19,48,0.08)",
+          backgroundColor: highlight ? "color-mix(in srgb, var(--accent) 5%, transparent)" : "rgba(11,19,48,0.015)",
         }}
         transition={{ duration: 0.7, ease: ENTRY }}
-        className="relative min-h-[124px] rounded-md border border-dashed p-3"
+        className="relative min-h-[124px] rounded-xl border border-dashed p-3"
       >
         {children}
         {empty && (
-          <div className="absolute inset-0 flex items-center justify-center text-[11px] text-muted/45">
+          <div className="absolute inset-0 flex items-center justify-center text-[11px] text-muted/60">
             {label === "Owner inbox" ? "Awaiting routed lead..." : "Idle"}
           </div>
         )}
@@ -327,22 +327,23 @@ export default function LeadLifecycle() {
         onFocus={() => setPaused(true)}
         onBlur={() => setPaused(false)}
         tabIndex={0}
-        animate={{ opacity: paused && !reducedMotion ? 0.78 : 1 }}
+        animate={{ opacity: paused && !reducedMotion ? 0.85 : 1 }}
         transition={{ duration: 0.6, ease: ENTRY }}
-        className="group relative isolate w-full overflow-hidden rounded-md border border-accent/20 bg-surface p-5 outline-none shadow-2xl shadow-[0_0_24px_var(--glow)] focus-visible:ring-2 focus-visible:ring-accent/40 sm:p-8"
+        className="shadow-card-lg group relative isolate w-full overflow-hidden rounded-2xl border border-border bg-white/90 p-5 outline-none backdrop-blur-xl focus-visible:ring-2 focus-visible:ring-accent/40 sm:p-8"
       >
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_0%,color-mix(in_srgb,var(--accent)_10%,transparent),transparent_55%),radial-gradient(circle_at_85%_100%,color-mix(in_srgb,var(--accent)_6%,transparent),transparent_55%)]"
+          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_0%,rgba(0,82,255,0.10),transparent_55%),radial-gradient(circle_at_85%_100%,rgba(46,107,255,0.08),transparent_55%)]"
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 opacity-60 [background-image:linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] [background-size:32px_32px]"
+          className="pointer-events-none absolute inset-0 -z-10 opacity-50 [background-image:linear-gradient(rgba(11,19,48,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(11,19,48,0.04)_1px,transparent_1px)] [background-size:32px_32px]"
+          style={{ maskImage: "radial-gradient(circle at 50% 50%, black 30%, transparent 80%)" }}
         />
 
         <div className="flex items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.18em] text-muted">
-            <span className="inline-flex h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px] shadow-[0_0_24px_var(--glow)]" />
+            <span className="inline-flex h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(0,82,255,0.6)]" />
             <span>Live lead pipeline</span>
           </div>
           <div className="flex items-center gap-1.5">
@@ -351,8 +352,8 @@ export default function LeadLifecycle() {
                 key={index}
                 animate={{
                   width: index === displayStage ? 20 : 6,
-                  backgroundColor: index <= displayStage ? "var(--accent)" : "rgba(255,255,255,0.12)",
-                  opacity: index <= displayStage ? 1 : 0.7,
+                  backgroundColor: index <= displayStage ? "var(--accent)" : "rgba(11,19,48,0.14)",
+                  opacity: index <= displayStage ? 1 : 0.6,
                 }}
                 transition={{ duration: 0.6, ease: ENTRY }}
                 className="h-1 rounded-full"
@@ -376,7 +377,7 @@ export default function LeadLifecycle() {
           </Lane>
         </div>
 
-        <div className="mt-5 flex items-center justify-between text-[10.5px] text-muted/50">
+        <div className="mt-5 flex items-center justify-between text-[10.5px] text-muted/70">
           <span>{reducedMotion ? "Static preview · reduced motion" : paused ? "Paused" : "Auto-playing · hover to pause"}</span>
           <span className="tabular-nums">9.00s loop</span>
         </div>

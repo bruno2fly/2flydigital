@@ -8,6 +8,8 @@ import LeadLifecycle from "./LeadLifecycle";
 import Logo from "./site/Logo";
 
 const consultationHref = "/consultation";
+const phoneDisplay = "(781) 606-2445";
+const phoneHref = "tel:+17816062445";
 
 const losses = [
   {
@@ -210,7 +212,7 @@ function PrimaryCta({ children }: { children: ReactNode }) {
   return (
     <Link
       href={consultationHref}
-      className="inline-flex min-h-12 items-center justify-center rounded-md bg-accent px-6 py-3 text-sm font-bold text-white transition hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg"
+      className="bg-accent-gradient shadow-accent-glow inline-flex min-h-12 items-center justify-center rounded-md px-6 py-3 text-sm font-bold text-white transition hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg"
     >
       {children}
     </Link>
@@ -221,7 +223,7 @@ function SecondaryCta({ href, children }: { href: string; children: ReactNode })
   return (
     <a
       href={href}
-      className="inline-flex min-h-12 items-center justify-center rounded-md border border-white/15 px-6 py-3 text-sm font-bold text-text transition hover:border-accent/60 hover:text-accent"
+      className="inline-flex min-h-12 items-center justify-center rounded-md border border-border bg-white/70 px-6 py-3 text-sm font-bold text-text backdrop-blur transition hover:border-accent/60 hover:text-accent hover:shadow-card"
     >
       {children}
     </a>
@@ -254,24 +256,25 @@ function HeroSystemVisual() {
   const signalLabels = ["Ads", "SEO", "AI", "Site", "Calls", "SMS"];
 
   return (
-    <div className="relative min-h-[520px] overflow-hidden rounded-md border border-white/10 bg-surface p-5 shadow-2xl shadow-black/40">
+    <div className="shadow-card-lg relative min-h-[520px] overflow-hidden rounded-2xl border border-border bg-white/85 p-5 backdrop-blur-xl">
       <div
-        className="absolute inset-0 opacity-[0.07]"
+        className="absolute inset-0 opacity-[0.55]"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(240,235,228,.8) 1px, transparent 1px), linear-gradient(90deg, rgba(240,235,228,.8) 1px, transparent 1px)",
+            "linear-gradient(rgba(11,19,48,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(11,19,48,.06) 1px, transparent 1px)",
           backgroundSize: "42px 42px",
+          maskImage: "radial-gradient(circle at 50% 45%, black 35%, transparent 75%)",
         }}
       />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,color-mix(in_srgb,var(--accent)_20%,transparent),transparent_45%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(0,82,255,0.18),transparent_55%),radial-gradient(circle_at_85%_90%,rgba(46,107,255,0.12),transparent_55%)]" />
 
       <motion.div
-        className="absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent/25 bg-accent/5"
+        className="absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border border-accent/25 bg-accent/[0.04]"
         animate={{ rotate: 360 }}
         transition={{ duration: 38, repeat: Infinity, ease: "linear" }}
       />
       <motion.div
-        className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10"
+        className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full border border-border"
         animate={{ rotate: -360 }}
         transition={{ duration: 52, repeat: Infinity, ease: "linear" }}
       />
@@ -289,29 +292,29 @@ function HeroSystemVisual() {
         return (
           <motion.div
             key={label}
-            className={`absolute ${positions[index]} rounded-md border border-white/10 bg-surface-2/90 px-4 py-3 text-sm font-bold text-text shadow-xl shadow-black/20 backdrop-blur`}
-            animate={{ y: [0, -8, 0], opacity: [0.78, 1, 0.78] }}
+            className={`absolute ${positions[index]} shadow-card rounded-lg border border-border bg-white/95 px-4 py-3 text-sm font-bold text-text backdrop-blur`}
+            animate={{ y: [0, -8, 0], opacity: [0.85, 1, 0.85] }}
             transition={{ duration: 4.2, repeat: Infinity, delay: index * 0.35 }}
           >
-            <span className="mr-2 inline-block h-2 w-2 rounded-full bg-accent" />
+            <span className="mr-2 inline-block h-2 w-2 rounded-full bg-accent shadow-[0_0_8px_rgba(0,82,255,0.6)]" />
             {label}
           </motion.div>
         );
       })}
 
       <motion.div
-        className="absolute left-1/2 top-1/2 w-[min(78%,360px)] -translate-x-1/2 -translate-y-1/2 rounded-md border border-accent/30 bg-surface/95 p-6 text-center shadow-2xl shadow-[0_0_24px_var(--glow)]"
+        className="shadow-card-lg absolute left-1/2 top-1/2 w-[min(78%,360px)] -translate-x-1/2 -translate-y-1/2 rounded-xl border border-accent/25 bg-white/95 p-6 text-center backdrop-blur"
         initial={{ opacity: 0, scale: 0.96 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7, delay: 0.25 }}
       >
-        <p className="text-xs font-bold uppercase text-accent">2FLY Operating System</p>
+        <p className="text-xs font-bold uppercase tracking-wider text-accent">2FLY Operating System</p>
         <p className="mt-3 text-2xl font-black leading-tight text-text">
           Leads routed, qualified, followed up, and reported.
         </p>
         <div className="mt-5 grid grid-cols-3 gap-2 text-xs text-muted">
           {["24/7 agent", "Fast reply", "Owner view"].map((item) => (
-            <div key={item} className="rounded border border-white/10 bg-white/[0.03] px-2 py-2">
+            <div key={item} className="rounded-md border border-border bg-accent-soft/60 px-2 py-2 font-medium">
               {item}
             </div>
           ))}
@@ -322,18 +325,18 @@ function HeroSystemVisual() {
         {["Lead quality", "Response time", "Booked jobs"].map((metric, index) => (
           <motion.div
             key={metric}
-            className="rounded-md border border-white/10 bg-black/25 p-2 backdrop-blur sm:p-3"
-            animate={{ borderColor: ["rgba(255,255,255,.1)", "color-mix(in srgb, var(--accent) 45%, transparent)", "rgba(255,255,255,.1)"] }}
+            className="shadow-card rounded-lg border border-border bg-white/90 p-2 backdrop-blur sm:p-3"
+            animate={{ borderColor: ["rgba(221,229,243,1)", "color-mix(in srgb, var(--accent) 45%, transparent)", "rgba(221,229,243,1)"] }}
             transition={{ duration: 5, repeat: Infinity, delay: index * 0.7 }}
           >
-            <div className="h-1.5 rounded-full bg-white/10">
+            <div className="h-1.5 rounded-full bg-accent-soft">
               <motion.div
-                className="h-full rounded-full bg-accent"
+                className="bg-accent-gradient h-full rounded-full"
                 animate={{ width: ["35%", "78%", "48%"] }}
                 transition={{ duration: 4.8, repeat: Infinity, delay: index * 0.5 }}
               />
             </div>
-            <p className="mt-2 leading-tight">{metric}</p>
+            <p className="mt-2 font-medium leading-tight text-text">{metric}</p>
           </motion.div>
         ))}
       </div>
@@ -344,26 +347,26 @@ function HeroSystemVisual() {
 export default function ContractorGrowthPage() {
   return (
     <div className="min-h-screen overflow-hidden bg-bg text-muted">
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-bg/82 backdrop-blur-xl">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-white/75 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-6">
           <Logo className="text-xl" />
           <nav className="hidden items-center gap-7 text-sm font-medium text-muted lg:flex">
-            <a className="hover:text-text" href="#system">
+            <a className="transition hover:text-text" href="#system">
               System
             </a>
-            <a className="hover:text-text" href="#agent">
+            <a className="transition hover:text-text" href="#agent">
               AI Agent
             </a>
-            <a className="hover:text-text" href="#trades">
+            <a className="transition hover:text-text" href="#trades">
               Trades
             </a>
-            <a className="hover:text-text" href="#offer">
+            <a className="transition hover:text-text" href="#offer">
               Pricing
             </a>
-            <a className="hover:text-text" href="#addons">
+            <a className="transition hover:text-text" href="#addons">
               Add-ons
             </a>
-            <a className="hover:text-text" href="#faq">
+            <a className="transition hover:text-text" href="#faq">
               FAQ
             </a>
           </nav>
@@ -372,7 +375,7 @@ export default function ContractorGrowthPage() {
           </div>
           <Link
             href={consultationHref}
-            className="inline-flex min-h-10 items-center justify-center rounded-md bg-accent px-4 py-2 text-sm font-bold text-white transition hover:bg-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg sm:hidden"
+            className="bg-accent-gradient shadow-accent-glow inline-flex min-h-10 items-center justify-center rounded-md px-4 py-2 text-sm font-bold text-white transition hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg sm:hidden"
           >
             Book
           </Link>
@@ -382,23 +385,25 @@ export default function ContractorGrowthPage() {
       <main>
         <section className="relative flex min-h-screen items-center px-5 pb-20 pt-28 sm:px-6 lg:pt-24">
           <div
-            className="pointer-events-none absolute inset-0 opacity-[0.04]"
+            className="pointer-events-none absolute inset-0 opacity-[0.4]"
             style={{
               backgroundImage:
-                "linear-gradient(rgba(255,255,255,.85) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.85) 1px, transparent 1px)",
+                "linear-gradient(rgba(11,19,48,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(11,19,48,.05) 1px, transparent 1px)",
               backgroundSize: "72px 72px",
+              maskImage: "radial-gradient(ellipse at 50% 30%, black 35%, transparent 80%)",
             }}
           />
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,color-mix(in_srgb,var(--accent)_16%,transparent),transparent_34%),radial-gradient(circle_at_78%_38%,rgba(240,235,228,.08),transparent_30%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(0,82,255,0.16),transparent_38%),radial-gradient(circle_at_78%_38%,rgba(46,107,255,0.12),transparent_36%)]" />
 
           <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
             <div>
               <motion.p
-                className="inline-flex rounded-md border border-accent/25 bg-accent/8 px-4 py-2 text-sm font-bold text-accent"
+                className="inline-flex items-center gap-2 rounded-full border border-accent/25 bg-white/80 px-4 py-2 text-sm font-bold text-accent shadow-card backdrop-blur"
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55 }}
               >
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_rgba(0,82,255,0.6)]" />
                 AI-powered growth operating system for contractors
               </motion.p>
               <motion.h1
@@ -407,7 +412,7 @@ export default function ContractorGrowthPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 0.12 }}
               >
-                The unfair AI advantage for contractors.
+                The <span className="text-gradient">unfair AI advantage</span> for contractors.
               </motion.h1>
               <motion.p
                 className="mt-6 max-w-2xl text-lg leading-8 text-muted"
@@ -434,21 +439,21 @@ export default function ContractorGrowthPage() {
                 transition={{ duration: 0.7, delay: 0.5 }}
               >
                 {["More qualified leads", "Faster follow-up", "Clearer owner reporting"].map((item) => (
-                  <div key={item} className="border-l border-accent/45 pl-4">
+                  <div key={item} className="border-l-2 border-accent/45 pl-4 font-medium">
                     {item}
                   </div>
                 ))}
               </motion.div>
               <motion.div
-                className="mt-10 grid max-w-2xl gap-3 rounded-md border border-white/10 bg-white/[0.03] p-3 sm:grid-cols-3"
+                className="shadow-card mt-10 grid max-w-2xl gap-3 rounded-xl border border-border bg-white/80 p-3 backdrop-blur sm:grid-cols-3"
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 0.62 }}
               >
                 {proofStats.map((stat) => (
-                  <div key={stat.label} className="border-white/10 px-2 py-3 sm:border-l sm:first:border-l-0">
+                  <div key={stat.label} className="border-border px-2 py-3 sm:border-l sm:first:border-l-0">
                     <p className="text-2xl font-black leading-none text-text">{stat.value}</p>
-                    <p className="mt-2 text-xs font-bold uppercase leading-5 text-muted">{stat.label}</p>
+                    <p className="mt-2 text-xs font-bold uppercase leading-5 tracking-wider text-muted">{stat.label}</p>
                   </div>
                 ))}
               </motion.div>
@@ -457,7 +462,7 @@ export default function ContractorGrowthPage() {
           </div>
         </section>
 
-        <section className="border-y border-white/10 bg-surface px-5 py-20 sm:px-6 md:py-28">
+        <section className="border-y border-border bg-surface-2/60 px-5 py-20 sm:px-6 md:py-28">
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr]">
             <SectionIntro
               eyebrow="The reframe"
@@ -466,7 +471,10 @@ export default function ContractorGrowthPage() {
             />
             <div className="grid gap-4 sm:grid-cols-2">
               {losses.map((item) => (
-                <div key={item.title} className="rounded-md border border-white/10 bg-surface-2 p-6">
+                <div
+                  key={item.title}
+                  className="shadow-card rounded-xl border border-border bg-white p-6 transition hover:-translate-y-0.5 hover:border-accent/35 hover:shadow-card-lg"
+                >
                   <h3 className="text-xl font-black leading-tight text-text">{item.title}</h3>
                   <p className="mt-4 text-sm leading-6 text-muted">{item.body}</p>
                 </div>
@@ -486,18 +494,18 @@ export default function ContractorGrowthPage() {
               {leakMap.map((item, index) => (
                 <motion.div
                   key={item.stage}
-                  className="rounded-md border border-white/10 bg-surface-2 p-6"
+                  className="shadow-card rounded-xl border border-border bg-white p-6 transition hover:-translate-y-0.5 hover:border-accent/35 hover:shadow-card-lg"
                   initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.42, delay: index * 0.05 }}
                 >
-                  <div className="mb-6 flex h-11 w-11 items-center justify-center rounded border border-accent/25 bg-accent/10 text-sm font-black text-accent">
+                  <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-lg border border-accent/25 bg-accent-soft text-sm font-black text-accent">
                     0{index + 1}
                   </div>
                   <h3 className="text-xl font-black leading-tight text-text">{item.stage}</h3>
                   <p className="mt-4 text-sm font-bold leading-6 text-muted">{item.leak}</p>
-                  <p className="mt-4 border-t border-white/10 pt-4 text-sm leading-6 text-muted">
+                  <p className="mt-4 border-t border-border pt-4 text-sm leading-6 text-muted">
                     {item.fix}
                   </p>
                 </motion.div>
@@ -508,7 +516,7 @@ export default function ContractorGrowthPage() {
 
         <GrowthEngineSection />
 
-        <section id="agent" className="border-y border-white/10 bg-surface px-5 py-20 sm:px-6 md:py-28">
+        <section id="agent" className="border-y border-border bg-surface-2/60 px-5 py-20 sm:px-6 md:py-28">
           <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
             <LeadLifecycle />
             <SectionIntro
@@ -531,13 +539,14 @@ export default function ContractorGrowthPage() {
               {pipelineSteps.map((step, index) => (
                 <motion.div
                   key={step.title}
-                  className="relative rounded-md border border-white/10 bg-surface-2 p-5"
+                  className="shadow-card relative overflow-hidden rounded-xl border border-border bg-white p-5 transition hover:-translate-y-0.5 hover:border-accent/35 hover:shadow-card-lg"
                   initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.42, delay: index * 0.05 }}
                 >
-                  <p className="text-xs font-black uppercase text-accent">Step {index + 1}</p>
+                  <div className="absolute inset-x-0 top-0 h-1 bg-accent-gradient opacity-80" />
+                  <p className="text-xs font-black uppercase tracking-wider text-accent">Step {index + 1}</p>
                   <h3 className="mt-3 text-xl font-black text-text">{step.title}</h3>
                   <p className="mt-4 text-sm leading-6 text-muted">{step.body}</p>
                 </motion.div>
@@ -555,7 +564,10 @@ export default function ContractorGrowthPage() {
             />
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
               {trades.map((trade) => (
-                <div key={trade} className="rounded-md border border-white/10 bg-surface-2 px-4 py-5 text-sm font-bold text-text">
+                <div
+                  key={trade}
+                  className="shadow-card rounded-xl border border-border bg-white px-4 py-5 text-sm font-bold text-text transition hover:-translate-y-0.5 hover:border-accent/40 hover:text-accent hover:shadow-card-lg"
+                >
                   {trade}
                 </div>
               ))}
@@ -563,10 +575,10 @@ export default function ContractorGrowthPage() {
           </div>
         </section>
 
-        <section id="offer" className="border-y border-white/10 bg-surface px-5 py-20 sm:px-6 md:py-28">
+        <section id="offer" className="border-y border-border bg-surface-2/60 px-5 py-20 sm:px-6 md:py-28">
           <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_0.72fr]">
-            <div className="rounded-md border border-white/10 bg-surface-2 p-7 md:p-10">
-              <p className="text-sm font-bold uppercase text-accent">Starting offer</p>
+            <div className="shadow-card-lg rounded-2xl border border-border bg-white p-7 md:p-10">
+              <p className="text-sm font-bold uppercase tracking-wider text-accent">Starting offer</p>
               <h2 className="mt-4 text-4xl font-black leading-tight text-text sm:text-5xl">
                 Contractor Growth System
               </h2>
@@ -576,32 +588,43 @@ export default function ContractorGrowthPage() {
               </p>
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {offerItems.map((item) => (
-                  <div key={item} className="rounded border border-white/10 bg-black/20 p-4 text-sm leading-6 text-muted">
-                    <span className="mr-2 text-accent">/</span>
+                  <div
+                    key={item}
+                    className="rounded-lg border border-border bg-surface-2/70 p-4 text-sm leading-6 text-text"
+                  >
+                    <span className="mr-2 font-black text-accent">/</span>
                     {item}
                   </div>
                 ))}
               </div>
             </div>
-            <div className="rounded-md border border-accent/30 bg-surface p-7 shadow-2xl shadow-[0_0_24px_var(--glow)] md:p-8">
-              <p className="text-sm font-bold text-muted">Starting at</p>
-              <div className="mt-3 flex items-end gap-2">
-                <span className="text-6xl font-black leading-none text-text">$1,000</span>
-                <span className="pb-2 text-sm font-bold text-muted">/month</span>
-              </div>
-              <p className="mt-5 text-sm leading-6 text-muted">
-                Built for contractors who need more leads, better follow-up, more estimates, and
-                more jobs without immediately hiring more people. Ad spend is separate.
-              </p>
-              <div className="mt-6 border-t border-white/10 pt-6">
-                <p className="text-xs font-bold uppercase text-accent">Core includes</p>
-                <p className="mt-3 text-sm leading-6 text-muted">
-                  Google Ads, SEO / local visibility, AI Search / GEO visibility, website conversion
-                  improvement, basic follow-up, and monthly reporting.
+            <div className="bg-navy-card shadow-card-lg relative overflow-hidden rounded-2xl border border-accent/30 p-7 text-white md:p-8">
+              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_0%,rgba(46,107,255,0.35),transparent_55%),radial-gradient(circle_at_0%_100%,rgba(0,82,255,0.25),transparent_55%)]" />
+              <div className="relative">
+                <p className="text-sm font-bold uppercase tracking-wider text-brand-300">Starting at</p>
+                <div className="mt-3 flex items-end gap-2">
+                  <span className="text-6xl font-black leading-none text-white">$1,000</span>
+                  <span className="pb-2 text-sm font-bold text-white/70">/month</span>
+                </div>
+                <p className="mt-5 text-sm leading-6 text-white/75">
+                  Built for contractors who need more leads, better follow-up, more estimates, and
+                  more jobs without immediately hiring more people. Ad spend is separate.
                 </p>
-              </div>
-              <div className="mt-7">
-                <PrimaryCta>Request a consultation</PrimaryCta>
+                <div className="mt-6 border-t border-white/15 pt-6">
+                  <p className="text-xs font-bold uppercase tracking-wider text-brand-300">Core includes</p>
+                  <p className="mt-3 text-sm leading-6 text-white/75">
+                    Google Ads, SEO / local visibility, AI Search / GEO visibility, website conversion
+                    improvement, basic follow-up, and monthly reporting.
+                  </p>
+                </div>
+                <div className="mt-7">
+                  <Link
+                    href={consultationHref}
+                    className="inline-flex min-h-12 w-full items-center justify-center rounded-md bg-white px-6 py-3 text-sm font-bold text-navy shadow-[0_10px_30px_-10px_rgba(255,255,255,0.4)] transition hover:bg-brand-50 focus:outline-none focus:ring-2 focus:ring-white/60 focus:ring-offset-2 focus:ring-offset-navy"
+                  >
+                    Request a consultation
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -619,7 +642,7 @@ export default function ContractorGrowthPage() {
                 {addOns.map((addOn, index) => (
                   <motion.div
                     key={addOn.name}
-                    className="rounded-md border border-white/10 bg-surface-2 p-6"
+                    className="shadow-card rounded-xl border border-border bg-white p-6 transition hover:-translate-y-0.5 hover:border-accent/35 hover:shadow-card-lg"
                     initial={{ opacity: 0, y: 18 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-80px" }}
@@ -627,7 +650,7 @@ export default function ContractorGrowthPage() {
                   >
                     <div className="flex min-h-12 items-start justify-between gap-5">
                       <h3 className="text-lg font-black leading-tight text-text">{addOn.name}</h3>
-                      <p className="shrink-0 rounded border border-accent/25 bg-accent/10 px-3 py-2 text-right text-xs font-black text-accent">
+                      <p className="shrink-0 rounded-md border border-accent/25 bg-accent-soft px-3 py-2 text-right text-xs font-black text-accent">
                         {addOn.price}
                       </p>
                     </div>
@@ -639,11 +662,14 @@ export default function ContractorGrowthPage() {
           </div>
         </section>
 
-        <section className="border-y border-white/10 bg-surface px-5 py-20 sm:px-6 md:py-28">
+        <section className="border-y border-border bg-surface-2/60 px-5 py-20 sm:px-6 md:py-28">
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="grid gap-4 sm:grid-cols-2">
               {differences.map((item) => (
-                <div key={item.title} className="rounded-md border border-white/10 bg-surface-2 p-6">
+                <div
+                  key={item.title}
+                  className="shadow-card rounded-xl border border-border bg-white p-6 transition hover:-translate-y-0.5 hover:border-accent/35 hover:shadow-card-lg"
+                >
                   <h3 className="text-xl font-black leading-tight text-text">{item.title}</h3>
                   <p className="mt-4 text-sm leading-6 text-muted">{item.body}</p>
                 </div>
@@ -664,7 +690,7 @@ export default function ContractorGrowthPage() {
             body="A good contractor growth system should be clear about cost, scope, ownership, and what happens next."
             align="center"
           />
-          <div className="mx-auto mt-12 max-w-4xl divide-y divide-white/10 rounded-md border border-white/10 bg-surface-2">
+          <div className="shadow-card mx-auto mt-12 max-w-4xl divide-y divide-border rounded-2xl border border-border bg-white">
             {faqs.map((faq) => (
               <div key={faq.question} className="p-6">
                 <h3 className="text-lg font-black text-text">{faq.question}</h3>
@@ -675,11 +701,11 @@ export default function ContractorGrowthPage() {
         </section>
 
         <section id="cta" className="relative px-5 py-20 sm:px-6 md:py-28">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,color-mix(in_srgb,var(--accent)_14%,transparent),transparent_38%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_45%,rgba(0,82,255,0.16),transparent_45%)]" />
           <div className="relative mx-auto max-w-4xl text-center">
-            <p className="text-sm font-bold uppercase text-accent">Next step</p>
+            <p className="text-sm font-bold uppercase tracking-wider text-accent">Next step</p>
             <h2 className="mt-4 text-4xl font-black leading-tight text-text sm:text-5xl">
-              Put an unfair growth system behind your contracting company.
+              Put an <span className="text-gradient">unfair growth system</span> behind your contracting company.
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted">
               We will review your market, current site, search visibility, lead response, and where
@@ -692,12 +718,15 @@ export default function ContractorGrowthPage() {
               </SecondaryCta>
             </div>
 
-            <div className="mt-12 rounded-md border border-white/10 bg-surface-2 p-6 text-left">
-              <p className="text-sm font-bold uppercase text-accent">Contractors page checklist</p>
+            <div className="shadow-card mt-12 rounded-2xl border border-border bg-white p-6 text-left">
+              <p className="text-sm font-bold uppercase tracking-wider text-accent">Contractors page checklist</p>
               <div className="mt-5 grid gap-3 md:grid-cols-2">
                 {nextBuildChecklist.map((item) => (
-                  <div key={item} className="rounded border border-white/10 bg-black/20 px-4 py-3 text-sm leading-6 text-muted">
-                    <span className="mr-2 text-accent">/</span>
+                  <div
+                    key={item}
+                    className="rounded-lg border border-border bg-surface-2/70 px-4 py-3 text-sm leading-6 text-text"
+                  >
+                    <span className="mr-2 font-black text-accent">/</span>
                     {item}
                   </div>
                 ))}
@@ -707,11 +736,11 @@ export default function ContractorGrowthPage() {
         </section>
       </main>
 
-      <footer className="border-t border-white/10 px-5 py-10 sm:px-6">
+      <footer className="border-t border-border bg-white/60 px-5 py-10 backdrop-blur sm:px-6">
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 text-sm text-muted md:flex-row md:items-center">
           <Logo className="text-xl" />
           <p>AI-powered contractor growth operating system.</p>
-          <a className="hover:text-text" href="mailto:hello@2flydigital.com">
+          <a className="transition hover:text-accent" href="mailto:hello@2flydigital.com">
             hello@2flydigital.com
           </a>
         </div>
