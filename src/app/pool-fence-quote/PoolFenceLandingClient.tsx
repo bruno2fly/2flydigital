@@ -195,9 +195,9 @@ export default function PoolFenceLandingClient() {
             </p>
 
             {submitSuccess && (
-              <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
-                <p className="text-sm md:text-base text-green-800 font-semibold">
-                  ✓ Thank you! We'll contact you soon with your quote.
+              <div className="mb-6 p-4 bg-accent-soft border border-accent rounded-lg">
+                <p className="text-sm md:text-base text-accent font-semibold">
+                  ✓ Thank you! We&apos;ll contact you soon with your quote.
                 </p>
               </div>
             )}

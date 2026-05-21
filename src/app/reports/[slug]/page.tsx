@@ -26,11 +26,13 @@ export default function ReportPage() {
   const [reportData, setReportData] = useState<ReportData | null>(null);
 
   useEffect(() => {
-    // Retrieve from localStorage
-    const data = localStorage.getItem(`report_${slug}`);
-    if (data) {
-      setReportData(JSON.parse(data));
-    }
+    const id = window.setTimeout(() => {
+      const data = localStorage.getItem(`report_${slug}`);
+      if (data) {
+        setReportData(JSON.parse(data));
+      }
+    }, 0);
+    return () => window.clearTimeout(id);
   }, [slug]);
 
   if (!reportData) {
@@ -38,10 +40,6 @@ export default function ReportPage() {
   }
 
   const totalRetainer = parseInt(reportData.monthlyRetainer) * parseInt(reportData.totalRetainerMonths);
-  const startYear = reportData.startDate.split('-')[0];
-  const startMonth = reportData.startDate.split('-')[1];
-  const endYear = reportData.endDate.split('-')[0];
-  const endMonth = reportData.endDate.split('-')[1];
 
   return (
     <div style={styles.container}>
