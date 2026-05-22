@@ -149,6 +149,7 @@ const pipelineSteps = [
 
 const offerItems = [
   "Google Ads management and search-term optimization",
+  "Meta Ads (Facebook/Instagram) campaign management",
   "Local SEO priorities and service-page direction",
   "AI Search / GEO visibility work",
   "Landing page and website conversion improvements",
@@ -296,7 +297,7 @@ function SectionIntro({
 }
 
 function HeroSystemVisual() {
-  const signalLabels = ["Ads", "SEO", "AI", "Site", "Calls", "SMS"];
+  const signalLabels = ["Google Ads", "Meta Ads", "AI", "Site", "Calls", "SMS"];
 
   return (
     <div className="shadow-card-lg relative min-h-[520px] overflow-hidden rounded-2xl border border-border bg-white/85 p-5 backdrop-blur-xl">
@@ -705,8 +706,7 @@ export default function ContractorGrowthPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 0.24 }}
               >
-                2FLY helps contractors get found, convert faster, qualify leads instantly, recover
-                missed opportunities, and see what is working without needing a bigger team.
+                2FLY helps contractors dominate local search with Google Ads + Meta Ads, convert faster with AI, qualify leads instantly, and recover missed opportunities without needing a bigger team.
               </motion.p>
               <motion.div
                 className="mt-9 flex flex-col gap-3 sm:flex-row"
@@ -870,8 +870,7 @@ export default function ContractorGrowthPage() {
                 Contractor Growth System
               </h2>
               <p className="mt-5 max-w-3xl text-base leading-7 text-muted">
-                Start with the essential operating system for lead generation, conversion, AI
-                visibility, basic follow-up, and reporting. Expand when the data shows where the ceiling is.
+                Complete digital advertising system with Google Ads + Meta Ads, AI visibility, conversion optimization, basic follow-up, and unified reporting. Expand when the data shows where the ceiling is.
               </p>
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {offerItems.map((item) => (
@@ -900,8 +899,7 @@ export default function ContractorGrowthPage() {
                 <div className="mt-6 border-t border-white/15 pt-6">
                   <p className="text-xs font-bold uppercase tracking-wider text-brand-300">Core includes</p>
                   <p className="mt-3 text-sm leading-6 text-white/75">
-                    Google Ads, SEO / local visibility, AI Search / GEO visibility, website conversion
-                    improvement, basic follow-up, and monthly reporting.
+                    Google Ads + Meta Ads management, SEO / local visibility, AI Search / GEO visibility, website conversion improvement, basic follow-up, and unified reporting.
                   </p>
                 </div>
                 <div className="mt-7">
