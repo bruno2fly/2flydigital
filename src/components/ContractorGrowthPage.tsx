@@ -65,6 +65,29 @@ const visibilityChecks = [
   },
 ];
 
+const visibilityResultDefaults = [
+  {
+    area: "Search visibility",
+    status: "Weak",
+    body: "Likely missing clear service-area signals and search intent alignment.",
+  },
+  {
+    area: "Local trust signals",
+    status: "Moderate",
+    body: "Some proof may be present, but buyers still need faster reasons to trust you.",
+  },
+  {
+    area: "Site speed / mobile experience",
+    status: "Needs improvement",
+    body: "Mobile-first visitors may hit friction before they decide to call.",
+  },
+  {
+    area: "Lead capture path",
+    status: "Opportunity found",
+    body: "The next step can be made clearer for quote-ready visitors.",
+  },
+];
+
 const leakMap = [
   {
     stage: "Search demand",
@@ -368,7 +391,36 @@ function VisibilityCheckSection() {
   const [businessName, setBusinessName] = useState("");
   const [serviceArea, setServiceArea] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const hasSearchInput = businessName.trim().length > 0 || serviceArea.trim().length > 0;
+  const hasBusinessName = businessName.trim().length > 0;
+  const hasServiceArea = serviceArea.trim().length > 0;
+  const hasSearchInput = hasBusinessName || hasServiceArea;
+  const resultRows = visibilityResultDefaults.map((result) => {
+    if (result.area === "Search visibility" && hasBusinessName && hasServiceArea) {
+      return {
+        ...result,
+        status: "Needs work",
+        body: "Business and market signals are present; now the likely gap is how clearly they match buyer searches.",
+      };
+    }
+
+    if (result.area === "Local trust signals" && hasBusinessName) {
+      return {
+        ...result,
+        status: "Moderate",
+        body: "The business can be reviewed for proof, reviews, local listings, and service-page confidence.",
+      };
+    }
+
+    if (result.area === "Lead capture path" && hasServiceArea) {
+      return {
+        ...result,
+        status: "Opportunity found",
+        body: `Visitors in ${serviceArea.trim()} need a faster path from interest to booked estimate.`,
+      };
+    }
+
+    return result;
+  });
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -482,36 +534,91 @@ function VisibilityCheckSection() {
               ))}
             </div>
 
-            <div className="mt-5 rounded-xl border border-accent/25 bg-accent-soft/70 p-5">
-              <p className="text-sm font-black text-text">
-                {submitted
-                  ? "Your visibility check is ready to claim."
-                  : "No fake score. No instant pretend audit."}
-              </p>
-              <p className="mt-2 text-sm leading-6 text-muted">
-                {submitted && hasSearchInput
-                  ? "We will use those details to prepare the review before your call."
-                  : "The form stages the request; 2FLY completes the actual review before the strategy call."}
-              </p>
-              <div className="mt-5 flex flex-col gap-3 sm:flex-row">
-                <Link
-                  href={{
-                    pathname: consultationHref,
-                    query: { source: "visibility-check" },
-                  }}
-                  className="bg-accent-gradient shadow-accent-glow inline-flex min-h-12 items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-bold text-white transition hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg"
-                >
-                  Claim My Free Check
-                  <ArrowRight size={17} aria-hidden="true" />
-                </Link>
-                <a
-                  href={phoneHref}
-                  className="inline-flex min-h-12 items-center justify-center rounded-md border border-border bg-white/80 px-6 py-3 text-sm font-bold text-text transition hover:border-accent/60 hover:text-accent"
-                >
-                  Call Now {phoneDisplay}
-                </a>
+            {submitted ? (
+              <motion.div
+                className="mt-5 overflow-hidden rounded-xl border border-accent/25 bg-white shadow-card"
+                initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.35 }}
+              >
+                <div className="border-b border-border bg-accent-soft/70 p-5">
+                  <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                    <div>
+                      <p className="text-xs font-black uppercase tracking-wider text-accent">
+                        Quick heuristic results
+                      </p>
+                      <h4 className="mt-2 text-xl font-black leading-tight text-text">
+                        {hasSearchInput
+                          ? "Initial visibility issues found"
+                          : "Common visibility issues to review"}
+                      </h4>
+                    </div>
+                    <span className="inline-flex w-fit items-center rounded-full border border-accent/25 bg-white px-3 py-1 text-xs font-black uppercase tracking-wider text-accent">
+                      Front-end estimate
+                    </span>
+                  </div>
+                  <p className="mt-3 text-sm leading-6 text-muted">
+                    This is a quick heuristic preview based on the information entered, not a completed
+                    scan or ranking guarantee. 2FLY completes the real review before your consultation.
+                  </p>
+                </div>
+
+                <div className="grid gap-3 p-4 sm:grid-cols-2">
+                  {resultRows.map((result, index) => (
+                    <motion.div
+                      key={result.area}
+                      className="rounded-lg border border-border bg-surface-2/70 p-4"
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.28, delay: index * 0.06 }}
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <p className="text-sm font-black text-text">{result.area}</p>
+                        <span className="shrink-0 rounded-full bg-white px-2.5 py-1 text-[11px] font-black uppercase tracking-wider text-accent shadow-card">
+                          {result.status}
+                        </span>
+                      </div>
+                      <p className="mt-3 text-sm leading-6 text-muted">{result.body}</p>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <div className="border-t border-border bg-[linear-gradient(135deg,rgba(0,82,255,0.10),rgba(255,255,255,0.92))] p-5">
+                  <p className="text-lg font-black leading-tight text-text">
+                    2FLY can turn these gaps into a cleaner lead path.
+                  </p>
+                  <p className="mt-2 text-sm leading-6 text-muted">
+                    We&apos;ll walk you through the biggest wins and what to fix first.
+                  </p>
+                  <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+                    <Link
+                      href={{
+                        pathname: consultationHref,
+                        query: { source: "visibility-check" },
+                      }}
+                      className="bg-accent-gradient shadow-accent-glow inline-flex min-h-12 items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-bold text-white transition hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg"
+                    >
+                      Book My Consultation
+                      <ArrowRight size={17} aria-hidden="true" />
+                    </Link>
+                    <a
+                      href={phoneHref}
+                      className="inline-flex min-h-12 items-center justify-center rounded-md border border-border bg-white/85 px-6 py-3 text-sm font-bold text-text transition hover:border-accent/60 hover:text-accent"
+                    >
+                      Call Now {phoneDisplay}
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            ) : (
+              <div className="mt-5 rounded-xl border border-accent/25 bg-accent-soft/70 p-5">
+                <p className="text-sm font-black text-text">No fake score. No instant pretend audit.</p>
+                <p className="mt-2 text-sm leading-6 text-muted">
+                  Submit the form to see a quick heuristic preview. 2FLY completes the actual review
+                  before the strategy call.
+                </p>
               </div>
-            </div>
+            )}
           </div>
         </motion.div>
       </div>
