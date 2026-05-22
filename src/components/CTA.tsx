@@ -1,6 +1,10 @@
 "use client";
 
+import Link from "next/link";
 import AnimatedSection from "./AnimatedSection";
+
+const PHONE_DISPLAY = "(781) 606-2445";
+const PHONE_HREF = "tel:+17816062445";
 
 export default function CTA() {
   return (
@@ -27,19 +31,17 @@ export default function CTA() {
           </p>
 
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href="https://discord.gg/clawd"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg bg-[var(--color-accent)] px-8 py-3.5 text-sm font-semibold text-[var(--color-bg)] transition-colors hover:bg-[var(--color-accent-dark)]"
+            <Link
+              href="/consultation"
+              className="bg-accent-gradient shadow-accent-glow inline-flex min-h-12 items-center justify-center rounded-lg px-8 py-3.5 text-sm font-semibold text-white transition hover:brightness-110"
             >
-              Start a Conversation
-            </a>
+              Book My Free Consultation
+            </Link>
             <a
-              href="mailto:hello@2flydigital.com"
-              className="rounded-lg border border-[var(--color-border)] px-8 py-3.5 text-sm font-medium text-[var(--color-text-bright)] transition-colors hover:border-[var(--color-accent)]/40"
+              href={PHONE_HREF}
+              className="inline-flex min-h-12 items-center justify-center rounded-lg border border-[var(--color-border)] bg-white px-8 py-3.5 text-sm font-semibold text-[var(--color-text-bright)] transition hover:border-[var(--color-accent)]/60 hover:text-[var(--color-accent)]"
             >
-              hello@2flydigital.com
+              Call Now {PHONE_DISPLAY}
             </a>
           </div>
 

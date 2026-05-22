@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import type { ReactNode } from "react";
+import { useState, type FormEvent, type ReactNode } from "react";
 import { motion } from "framer-motion";
+import { ArrowRight, CheckCircle2, Gauge, MapPin, MousePointerClick, Search } from "lucide-react";
 import GrowthEngineSection from "./GrowthEngineSection";
 import LeadLifecycle from "./LeadLifecycle";
 import Logo from "./site/Logo";
@@ -42,6 +43,25 @@ const proofStats = [
   {
     value: "24/7",
     label: "site qualification",
+  },
+];
+
+const visibilityChecks = [
+  {
+    title: "Google visibility",
+    body: "How easy it is to find you for profitable services in your actual market.",
+  },
+  {
+    title: "Local presence",
+    body: "The trust signals buyers compare across maps, reviews, service pages, and listings.",
+  },
+  {
+    title: "Speed basics",
+    body: "Fast checks for obvious page-speed, mobile, and first-impression issues.",
+  },
+  {
+    title: "Missed conversions",
+    body: "Where visitors, callers, and estimate requests may be dropping before they book.",
   },
 ];
 
@@ -344,6 +364,161 @@ function HeroSystemVisual() {
   );
 }
 
+function VisibilityCheckSection() {
+  const [businessName, setBusinessName] = useState("");
+  const [serviceArea, setServiceArea] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const hasSearchInput = businessName.trim().length > 0 || serviceArea.trim().length > 0;
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSubmitted(true);
+  }
+
+  return (
+    <section id="visibility-check" className="border-y border-border bg-surface-2/60 px-5 py-20 sm:px-6 md:py-28">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[0.88fr_1.12fr]">
+        <div>
+          <p className="text-sm font-bold uppercase tracking-wider text-accent">Free visibility check</p>
+          <h2 className="mt-4 text-4xl font-black leading-[1.04] text-text sm:text-5xl">
+            See what buyers find before they ever call you.
+          </h2>
+          <p className="mt-5 text-base leading-7 text-muted sm:text-lg">
+            Give us your business and service area. We will review the practical places contractor leads
+            are won or lost: Google visibility, local presence, speed/performance basics, and missed
+            conversion issues.
+          </p>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            {visibilityChecks.map((item) => (
+              <div key={item.title} className="rounded-xl border border-border bg-white/80 p-4 shadow-card">
+                <div className="flex items-center gap-3">
+                  <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-accent/25 bg-accent-soft text-accent">
+                    <CheckCircle2 size={18} aria-hidden="true" />
+                  </span>
+                  <h3 className="text-sm font-black text-text">{item.title}</h3>
+                </div>
+                <p className="mt-3 text-sm leading-6 text-muted">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <motion.div
+          className="shadow-card-lg relative overflow-hidden rounded-2xl border border-accent/25 bg-white p-5 sm:p-6"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.45 }}
+        >
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_82%_10%,rgba(0,82,255,0.14),transparent_42%)]" />
+          <div className="relative">
+            <div className="mb-5 flex items-center justify-between gap-4">
+              <div>
+                <p className="text-xs font-black uppercase tracking-wider text-accent">Search-style review</p>
+                <h3 className="mt-2 text-2xl font-black leading-tight text-text">
+                  Check my contractor visibility
+                </h3>
+              </div>
+              <span className="hidden h-12 w-12 items-center justify-center rounded-xl border border-accent/25 bg-accent-soft text-accent sm:inline-flex">
+                <Search size={22} aria-hidden="true" />
+              </span>
+            </div>
+
+            <form onSubmit={handleSubmit} className="rounded-xl border border-border bg-surface-2/70 p-3">
+              <div className="grid gap-3 md:grid-cols-[1fr_1fr_auto]">
+                <label className="block">
+                  <span className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-muted">
+                    Business name
+                  </span>
+                  <div className="flex min-h-12 items-center gap-2 rounded-lg border border-border bg-white px-3 transition focus-within:border-accent/60 focus-within:ring-2 focus-within:ring-accent/20">
+                    <Search size={17} className="shrink-0 text-accent" aria-hidden="true" />
+                    <input
+                      value={businessName}
+                      onChange={(event) => setBusinessName(event.target.value)}
+                      placeholder="Riverside Roofing"
+                      className="min-w-0 flex-1 bg-transparent text-sm text-text outline-none placeholder:text-muted/55"
+                    />
+                  </div>
+                </label>
+
+                <label className="block">
+                  <span className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-muted">
+                    City or service area
+                  </span>
+                  <div className="flex min-h-12 items-center gap-2 rounded-lg border border-border bg-white px-3 transition focus-within:border-accent/60 focus-within:ring-2 focus-within:ring-accent/20">
+                    <MapPin size={17} className="shrink-0 text-accent" aria-hidden="true" />
+                    <input
+                      value={serviceArea}
+                      onChange={(event) => setServiceArea(event.target.value)}
+                      placeholder="Boston, MA"
+                      className="min-w-0 flex-1 bg-transparent text-sm text-text outline-none placeholder:text-muted/55"
+                    />
+                  </div>
+                </label>
+
+                <button
+                  type="submit"
+                  className="bg-accent-gradient shadow-accent-glow inline-flex min-h-12 items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-bold text-white transition hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg md:self-end"
+                >
+                  Check
+                  <ArrowRight size={17} aria-hidden="true" />
+                </button>
+              </div>
+            </form>
+
+            <div className="mt-5 grid gap-3 sm:grid-cols-3">
+              {[
+                { label: "Search demand", icon: Search },
+                { label: "Site speed basics", icon: Gauge },
+                { label: "Lead path", icon: MousePointerClick },
+              ].map(({ label, icon: Icon }) => (
+                <div key={label} className="rounded-lg border border-border bg-white/85 p-3">
+                  <Icon size={18} className="text-accent" aria-hidden="true" />
+                  <p className="mt-2 text-xs font-black uppercase leading-5 tracking-wider text-text">
+                    {label}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-5 rounded-xl border border-accent/25 bg-accent-soft/70 p-5">
+              <p className="text-sm font-black text-text">
+                {submitted
+                  ? "Your visibility check is ready to claim."
+                  : "No fake score. No instant pretend audit."}
+              </p>
+              <p className="mt-2 text-sm leading-6 text-muted">
+                {submitted && hasSearchInput
+                  ? "We will use those details to prepare the review before your call."
+                  : "The form stages the request; 2FLY completes the actual review before the strategy call."}
+              </p>
+              <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href={{
+                    pathname: consultationHref,
+                    query: { source: "visibility-check" },
+                  }}
+                  className="bg-accent-gradient shadow-accent-glow inline-flex min-h-12 items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-bold text-white transition hover:brightness-110 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-bg"
+                >
+                  Claim My Free Check
+                  <ArrowRight size={17} aria-hidden="true" />
+                </Link>
+                <a
+                  href={phoneHref}
+                  className="inline-flex min-h-12 items-center justify-center rounded-md border border-border bg-white/80 px-6 py-3 text-sm font-bold text-text transition hover:border-accent/60 hover:text-accent"
+                >
+                  Call Now {phoneDisplay}
+                </a>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 export default function ContractorGrowthPage() {
   return (
     <div className="min-h-screen overflow-hidden bg-bg text-muted">
@@ -353,6 +528,9 @@ export default function ContractorGrowthPage() {
           <nav className="hidden items-center gap-7 text-sm font-medium text-muted lg:flex">
             <a className="transition hover:text-text" href="#system">
               System
+            </a>
+            <a className="transition hover:text-text" href="#visibility-check">
+              Free Check
             </a>
             <a className="transition hover:text-text" href="#agent">
               AI Agent
@@ -371,7 +549,7 @@ export default function ContractorGrowthPage() {
             </a>
           </nav>
           <div className="hidden sm:block">
-            <PrimaryCta>Book a strategy call</PrimaryCta>
+            <PrimaryCta>Claim a free check</PrimaryCta>
           </div>
           <Link
             href={consultationHref}
@@ -429,8 +607,8 @@ export default function ContractorGrowthPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.55, delay: 0.36 }}
               >
-                <PrimaryCta>Build my growth system</PrimaryCta>
-                <SecondaryCta href="#system">See the system</SecondaryCta>
+                <PrimaryCta>Claim my free visibility check</PrimaryCta>
+                <SecondaryCta href={phoneHref}>Call Now {phoneDisplay}</SecondaryCta>
               </motion.div>
               <motion.div
                 className="mt-9 grid max-w-2xl gap-3 text-sm text-muted sm:grid-cols-3"
@@ -461,6 +639,8 @@ export default function ContractorGrowthPage() {
             <HeroSystemVisual />
           </div>
         </section>
+
+        <VisibilityCheckSection />
 
         <section className="border-y border-border bg-surface-2/60 px-5 py-20 sm:px-6 md:py-28">
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.8fr_1.2fr]">
@@ -712,10 +892,8 @@ export default function ContractorGrowthPage() {
               the fastest win should come from.
             </p>
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <PrimaryCta>Book a strategy call</PrimaryCta>
-              <SecondaryCta href="mailto:hello@2flydigital.com?subject=Contractor%20Growth%20System">
-                Email hello@2flydigital.com
-              </SecondaryCta>
+              <PrimaryCta>Book My Free Consultation</PrimaryCta>
+              <SecondaryCta href={phoneHref}>Call Now {phoneDisplay}</SecondaryCta>
             </div>
 
             <div className="shadow-card mt-12 rounded-2xl border border-border bg-white p-6 text-left">
