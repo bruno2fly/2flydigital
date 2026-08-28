@@ -365,25 +365,7 @@ function HeroSystemVisual() {
         </div>
       </motion.div>
 
-      <div className="absolute inset-x-5 bottom-5 grid grid-cols-3 gap-2 text-xs text-muted sm:gap-3">
-        {["Lead quality", "Response time", "Booked jobs"].map((metric, index) => (
-          <motion.div
-            key={metric}
-            className="shadow-card rounded-lg border border-border bg-white/90 p-2 backdrop-blur sm:p-3"
-            animate={{ borderColor: ["rgba(221,229,243,1)", "color-mix(in srgb, var(--accent) 45%, transparent)", "rgba(221,229,243,1)"] }}
-            transition={{ duration: 5, repeat: Infinity, delay: index * 0.7 }}
-          >
-            <div className="h-1.5 rounded-full bg-accent-soft">
-              <motion.div
-                className="bg-accent-gradient h-full rounded-full"
-                animate={{ width: ["35%", "78%", "48%"] }}
-                transition={{ duration: 4.8, repeat: Infinity, delay: index * 0.5 }}
-              />
-            </div>
-            <p className="mt-2 font-medium leading-tight text-text">{metric}</p>
-          </motion.div>
-        ))}
-      </div>
+
     </div>
   );
 }

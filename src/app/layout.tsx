@@ -1,12 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import ThemeProvider from "@/components/site/ThemeProvider";
 import "./globals.css";
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-});
 
 const theme = process.env.NEXT_PUBLIC_THEME === "bright" ? "bright" : "dark";
 
@@ -52,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme={theme} className={`${inter.variable} antialiased`}>
+    <html lang="en" data-theme={theme} className="antialiased">
       <body className="min-h-screen bg-bg text-muted">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
